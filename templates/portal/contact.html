@@ -1,0 +1,70 @@
+{% extends 'base1.html' %}
+{% block content %}
+<div class="max-w-7xl mx-auto py-20 px-4">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+            <span class="text-blue-700 font-black text-[10px] uppercase tracking-[0.3em]">Support Command</span>
+            <h1 class="text-5xl font-black text-slate-900 uppercase mt-4 mb-6">Contact <span class="text-blue-700">Experts</span></h1>
+            <p class="text-slate-500 font-medium text-lg leading-relaxed mb-12">Access official government helplines or send a secure inquiry to our internal cyber defense team.</p>
+            
+            <div class="space-y-6">
+                <div class="group flex items-center gap-6 p-6 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 shadow-md">
+                        <i class="fa-solid fa-phone-volume text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase">National Cyber Helpline (24/7)</p>
+                        <p class="text-2xl font-black text-slate-800 tracking-tighter">1930 / 112</p>
+                    </div>
+                </div>
+
+                <div class="group flex items-center gap-6 p-6 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 shadow-md">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase">CERT-In Incident Reporting</p>
+                        <p class="text-xl font-bold text-slate-800">incident@cert-in.org.in</p>
+                    </div>
+                </div>
+
+                <div class="group flex items-center gap-6 p-6 bg-white rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700 shadow-md">
+                        <i class="fa-solid fa-envelope-open-text text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-slate-400 uppercase">Official Defence Support</p>
+                        <p class="text-xl font-bold text-slate-800">support.cyber@mod.gov.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-10 rounded-[3.5rem] shadow-2xl border border-slate-50 relative">
+            <h3 class="text-xl font-black text-slate-800 uppercase mb-8">Secure Communication</h3>
+            <form action="{% url 'contact' %}" method="POST" class="space-y-6">
+                {% csrf_token %}
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-4">Full Name (Optional)</label>
+                    <input type="text" placeholder="Enter name for personalized support" class="w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-4">Emergency Level</label>
+                    <select class="w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 transition-all appearance-none">
+                        <option>General Inquiry</option>
+                        <option>Urgent Incident Support</option>
+                        <option>Technical Issue</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-4">Message</label>
+                    <textarea rows="4" placeholder="Briefly describe your request..." class="w-full p-5 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 transition-all"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-5 rounded-2xl uppercase tracking-widest text-xs shadow-xl shadow-blue-200 transition-all">
+                    Submit Intelligence Report
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base1.html' %}
+{% block content %}
+<div class="max-w-5xl mx-auto py-16 px-4">
+    <div class="text-center mb-12">
+        <div class="inline-block mb-4">
+            {% if incident.risk_level == 'HIGH' %}
+                <span class="bg-red-100 text-red-700 border border-red-200 px-6 py-2 rounded-full font-black logo-font animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.4)]">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i> CRITICAL THREAT DETECTED
+                </span>
+            {% elif incident.risk_level == 'MEDIUM' %}
+                <span class="bg-amber-100 text-amber-700 border border-amber-200 px-6 py-2 rounded-full font-black logo-font">
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i> MODERATE RISK
+                </span>
+            {% else %}
+                <span class="bg-blue-100 text-blue-700 border border-blue-200 px-6 py-2 rounded-full font-black logo-font">
+                    <i class="fa-solid fa-shield-check mr-2"></i> LOW RISK DETECTED
+                </span>
+            {% endif %}
+        </div>
+        <h1 class="logo-font text-4xl font-black text-slate-900">SAFETY <span class="text-blue-700">PROTOCOLS</span></h1>
+        <p class="text-slate-500 font-bold uppercase tracking-widest mt-2 text-xs">Incident ID: #DEF-{{ incident.id }}</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-[2rem] shadow-xl border-l-8 border-green-500 glow-border">
+            <h3 class="logo-font text-xl font-black text-green-700 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-circle-check"></i> MANDATORY DO'S
+            </h3>
+            <ul class="space-y-4">
+                {% for item in dos %}
+                <li class="flex items-start gap-3 font-bold text-slate-700 text-sm">
+                    <i class="fa-solid fa-check mt-1 text-green-500"></i> {{ item }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-[2rem] shadow-xl border-l-8 border-red-500 glow-border">
+            <h3 class="logo-font text-xl font-black text-red-700 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-circle-xmark"></i> STRICT DON'Ts
+            </h3>
+            <ul class="space-y-4">
+                {% for item in donts %}
+                <li class="flex items-start gap-3 font-bold text-slate-700 text-sm">
+                    <i class="fa-solid fa-xmark mt-1 text-red-500"></i> {{ item }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-12 flex flex-col items-center gap-4">
+        <a href="/" class="btn-glow text-white px-12 py-4 rounded-2xl font-black uppercase tracking-widest text-sm">
+            Return to Home
+        </a>
+        <p class="text-xs text-slate-400 font-bold uppercase tracking-tighter">AI Analysis Score: {{ incident.risk_score }}/20</p>
+    </div>
+</div>
+{% endblock %}

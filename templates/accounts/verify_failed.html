@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Verification Failed | Digital Mental Health{% endblock %}
+
+{% block content %}
+
+<section class="max-w-md mx-auto text-center bg-white border rounded-2xl p-10 shadow-sm">
+
+    <h1 class="text-3xl font-semibold text-red-600 mb-4">
+        Verification Failed
+    </h1>
+
+    <p class="text-gray-600 mb-6">
+        The verification code entered is invalid or expired.
+        Please try again or request a new code.
+    </p>
+
+    <a href="/auth/signup/"
+       class="inline-block px-6 py-3 bg-teal-700 text-white rounded-xl
+              hover:bg-teal-800 transition">
+        Retry Signup
+    </a>
+
+</section>
+
+{% endblock %}

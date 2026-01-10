@@ -1,0 +1,424 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% translate "AI Cyber Defence Portal" %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --defence-blue: #0056b3;
+            --cyber-cyan: #00d2ff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .logo-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .light-grid {
+            background-color: #f8fafc;
+            background-image: linear-gradient(rgba(0, 86, 179, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 86, 179, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 86, 179, 0.1);
+        }
+
+        /* Navigation Underline Animation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--defence-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--defence-blue) !important;
+        }
+
+        .dropdown-animate {
+            animation: fadeInScale 0.2s ease-out;
+            transform-origin: top right;
+        }
+
+
+
+        .success-checkmark {
+            width: 80px;
+            height: 115px;
+            margin: 0 auto;
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 50%;
+            box-sizing: content-box;
+            border: 4px solid #4CAF50;
+        }
+
+        .check-icon::before {
+            top: 3px;
+            left: -2px;
+            width: 30px;
+            transform-origin: 100% 50%;
+            border-radius: 100px 0 0 100px;
+        }
+
+        .icon-line {
+            height: 5px;
+            background-color: #4CAF50;
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .line-tip {
+            top: 46px;
+            left: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+            animation: icon-line-tip 0.75s;
+        }
+
+        .line-long {
+            top: 38px;
+            right: 8px;
+            width: 47px;
+            transform: rotate(-45deg);
+            animation: icon-line-long 0.75s;
+        }
+
+        @keyframes icon-line-tip {
+            0% {
+                width: 0;
+                left: 1px;
+                top: 19px;
+            }
+
+            54% {
+                width: 0;
+                left: 1px;
+                top: 19px;
+            }
+
+            70% {
+                width: 50px;
+                left: -8px;
+                top: 37px;
+            }
+
+            84% {
+                width: 17px;
+                left: 21px;
+                top: 48px;
+            }
+
+            100% {
+                width: 25px;
+                left: 14px;
+                top: 46px;
+            }
+        }
+
+        @keyframes icon-line-long {
+            0% {
+                width: 0;
+                right: 46px;
+                top: 54px;
+            }
+
+            65% {
+                width: 0;
+                right: 46px;
+                top: 54px;
+            }
+
+            84% {
+                width: 55px;
+                right: 0px;
+                top: 35px;
+            }
+
+            100% {
+                width: 47px;
+                right: 8px;
+                top: 38px;
+            }
+        }
+
+
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        #chat-content::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        #chat-content::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="light-grid min-h-screen">
+    <div class="h-1 w-full bg-gradient-to-r from-blue-700 via-cyan-400 to-blue-700"></div>
+
+    <nav class="glass-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
+
+            <div class="flex items-center gap-3">
+                <div
+                    class="relative w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-blue-700 shadow-lg animate-float">
+                    <i class="fa-solid fa-shield-halved text-2xl text-blue-700"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="logo-font font-bold text-xl tracking-tighter text-slate-800 leading-none">AI <span
+                            class="text-blue-700">CYBER</span></span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">{% translate "Defence
+                        Portal" %}</span>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="{% url 'landing' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'landing' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
+                    translate "Home" %}</a>
+                <a href="{% url 'services' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
+                    translate "Services" %}</a>
+                <a href="{% url 'resources' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'resources' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
+                    translate "Resources" %}</a>
+                <a href="{% url 'contact' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
+                    translate "Contact" %}</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="relative inline-block text-left" id="custom-lang-selector">
+                    <button type="button" onclick="toggleDropdown()"
+                        class="flex items-center gap-2 bg-slate-100 hover:bg-white px-4 py-2 rounded-full border border-slate-200 transition-all duration-300 group">
+                        <i class="fa-solid fa-language text-blue-700 text-[20px]"></i>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-700">
+                            {% get_current_language as CURRENT_LANG %}
+                            {% if CURRENT_LANG == 'hi' %}HINDI{% elif CURRENT_LANG == 'te' %}TELUGU{% else %}ENGLISH{%
+                            endif %}
+                        </span>
+                        <i
+                            class="fa-solid fa-chevron-down text-[8px] text-slate-400 group-hover:text-blue-700 transition-colors"></i>
+                    </button>
+
+                    <div id="lang-dropdown"
+                        class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white border border-slate-200 shadow-xl z-[60] overflow-hidden dropdown-animate">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                            <button name="language" value="en" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700 border-b border-slate-100">ENGLISH</button>
+                            <button name="language" value="hi" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700 border-b border-slate-100">HINDI</button>
+                            <button name="language" value="te" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700">TELUGU</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="{% url 'login' %}"
+                        class="text-sm font-bold text-slate-600 hover:text-blue-700 transition"><i
+                            class="fa-solid fa-right-to-bracket mr-1"></i> {% translate "LOGIN" %}</a>
+                    <a href="{% url 'signup' %}"
+                        class="btn-glow text-white px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest">{%
+                        translate "JOIN NETWORK" %}</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="min-h-[70vh]">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="mt-20 border-t border-slate-200 py-10 text-center">
+        <p class="text-xs text-slate-400 font-medium tracking-widest uppercase">
+            &copy; 2026 {% translate "Defence Cyber Safety Portal | AI Enabled Infrastructure" %}
+        </p>
+    </footer>
+
+    <div id="chat-wrapper" class="fixed bottom-6 right-6 z-[1000]">
+        <button onclick="toggleChat()"
+            class="w-16 h-16 bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all border-4 border-white">
+            <i class="fa-solid fa-robot text-2xl"></i>
+        </button>
+
+        <div id="chat-window"
+            class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden">
+            <div class="bg-blue-700 p-4 text-white flex justify-between items-center shadow-lg">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="logo-font text-[10px] font-black tracking-widest">{% translate "CYBER ADVISOR"
+                        %}</span>
+                </div>
+                <button onclick="toggleChat()" class="hover:rotate-90 transition-transform"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div id="chat-content" class="flex-1 p-4 overflow-y-auto text-[11px] space-y-4 bg-slate-50 flex flex-col">
+                <div
+                    class="bg-blue-100 p-3 rounded-2xl rounded-tl-none font-bold text-blue-800 self-start max-w-[85%] border border-blue-200">
+                    {% translate "Hello! I am your AI Cyber Assistant. How can I help you stay safe today?" %}
+                </div>
+            </div>
+
+            <div class="p-3 border-t bg-white flex gap-2">
+                <input id="chat-input" type="text" placeholder="{% translate 'Type in EN, HI, or TE...' %}"
+                    class="flex-1 text-xs p-3 bg-slate-100 rounded-xl outline-none font-medium focus:ring-2 focus:ring-blue-700/20 transition-all"
+                    onkeypress="if(event.key === 'Enter') sendMsg()">
+                <button onclick="sendMsg()"
+                    class="text-blue-700 w-10 h-10 flex items-center justify-center bg-blue-50 rounded-xl hover:bg-blue-700 hover:text-white transition-all">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() { document.getElementById('lang-dropdown').classList.toggle('hidden'); }
+        function toggleChat() {
+            const window = document.getElementById('chat-window');
+            window.classList.toggle('hidden');
+            if (!window.classList.contains('hidden')) document.getElementById('chat-input').focus();
+        }
+
+        const ACTIVE_LANG = "{{ request.LANGUAGE_CODE }}";
+        const csrftoken = "{{ csrf_token }}";
+
+        async function sendMsg() {
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            const userText = input.value.trim();
+            if (!userText) return;
+
+            content.innerHTML += `<div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tr-none font-bold text-slate-700 self-end max-w-[85%] shadow-sm">${userText}</div>`;
+            input.value = "";
+            content.scrollTop = content.scrollHeight;
+
+            try {
+                const response = await fetch(`/chatbot/query/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                    body: JSON.stringify({ msg: userText, lang: ACTIVE_LANG })
+                });
+                const data = await response.json();
+                setTimeout(() => {
+                    let formattedReply = data.reply.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" class="text-white underline font-black">$1</a>');
+                    content.innerHTML += `<div class="bg-blue-700 text-white p-3 rounded-2xl rounded-tl-none font-bold shadow-lg self-start max-w-[85%] animate-in fade-in">${formattedReply}</div>`;
+                    content.scrollTop = content.scrollHeight;
+                }, 400);
+            } catch (error) { console.error("Chat Error:", error); }
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.closest('#custom-lang-selector')) {
+                const dropdown = document.getElementById('lang-dropdown');
+                if (dropdown && !dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
+            }
+        }
+
+        {% if messages %}
+        {% for message in messages %}
+        if ("{{ message.tags }}" === "success") {
+            const popup = document.createElement('div');
+            popup.className = "fixed inset-0 flex items-center justify-center z-[100] bg-black/20 backdrop-blur-sm";
+            popup.innerHTML = `
+                <div class="bg-white p-10 rounded-[3rem] shadow-2xl text-center animate-fade-in">
+                    <div class="success-checkmark">
+                        <div class="check-icon">
+                            <span class="icon-line line-tip"></span>
+                            <span class="icon-line line-long"></span>
+                        </div>
+                    </div>
+                    <h2 class="text-2xl font-black text-gray-800 mt-4">Action Successful</h2>
+                    <p class="text-gray-500 font-medium mt-2">{{ message }}</p>
+                </div>
+            `;
+            document.body.appendChild(popup);
+            setTimeout(() => { popup.remove(); }, 3000); // Auto-close after 3 seconds
+        }
+        {% endfor %}
+        {% endif %}
+    </script>
+</body>
+
+</html>
