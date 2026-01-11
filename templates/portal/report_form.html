@@ -1,4 +1,5 @@
 {% extends 'base1.html' %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -9,112 +10,158 @@
         font-weight: 600;
         padding: 10px;
     }
-    .modal-active {
-        display: flex !important;
-    }
+
+    .modal-active { display: flex !important; }
+
     .glow-border {
         border: 1px solid rgba(59, 130, 246, 0.2);
         box-shadow: 0 0 20px rgba(59, 130, 246, 0.05);
     }
+
     .btn-glow {
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         transition: all 0.3s ease;
     }
+
     .btn-glow:hover {
         box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
         transform: translateY(-1px);
     }
 </style>
 
-<div id="success-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[100] items-center justify-center p-4">
-    <div class="bg-white p-8 rounded-[2.5rem] shadow-2xl text-center max-w-sm border-2 border-blue-100 animate-in fade-in zoom-in duration-300">
+<div id="success-modal"
+     class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[100] items-center justify-center p-4">
+    <div
+        class="bg-white p-8 rounded-[2.5rem] shadow-2xl text-center max-w-sm border-2 border-blue-100 animate-in fade-in zoom-in duration-300">
         <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fa-solid fa-cloud-check text-4xl text-green-500 animate-bounce"></i>
+            <i class="fa-solid fa-cloud-arrow-up text-4xl text-green-500 animate-bounce"></i>
         </div>
-        <h3 class="logo-font text-xl font-black text-slate-800 uppercase">EVIDENCE SECURED</h3>
-        <p id="display-file-name" class="text-[10px] font-bold text-blue-600 bg-blue-50 py-2 px-4 rounded-full mt-3 truncate"></p>
-        <p class="text-[10px] font-bold text-slate-400 uppercase mt-4 tracking-widest">Encrypted & Attached to Report</p>
-        <button onclick="closeModal()" class="mt-6 w-full btn-glow text-white py-3 rounded-xl text-xs font-black uppercase tracking-widest">Continue Reporting</button>
+        <h3 class="logo-font text-xl font-black text-slate-800 uppercase">
+            {% translate "EVIDENCE SECURED" %}
+        </h3>
+        <p id="display-file-name"
+           class="text-[10px] font-bold text-blue-600 bg-blue-50 py-2 px-4 rounded-full mt-3 truncate"></p>
+        <p class="text-[10px] font-bold text-slate-400 uppercase mt-4 tracking-widest">
+            {% translate "Encrypted & Attached to Report" %}
+        </p>
+        <button onclick="closeModal()"
+            class="mt-6 w-full btn-glow text-white py-3 rounded-xl text-xs font-black uppercase tracking-widest">
+            {% translate "Continue Reporting" %}
+        </button>
     </div>
 </div>
 
 <div class="max-w-4xl mx-auto py-16 px-4">
-    <a href="/" class="inline-flex items-center gap-2 mb-6 text-xs font-black text-slate-400 hover:text-blue-700 uppercase tracking-widest transition-colors">
-        <i class="fa-solid fa-arrow-left"></i> Back to Home
+    <a href="/"
+       class="inline-flex items-center gap-2 mb-6 text-xs font-black text-slate-400 hover:text-blue-700 uppercase tracking-widest transition-colors">
+        <i class="fa-solid fa-arrow-left"></i>
+        {% translate "Back to Home" %}
     </a>
+
     <div class="bg-white rounded-[2.5rem] shadow-2xl p-10 glow-border relative overflow-hidden">
         <div class="mb-10 flex items-center gap-4">
             <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-700">
                 <i class="fa-solid fa-file-shield text-2xl"></i>
             </div>
             <div>
-                <h2 class="logo-font text-2xl font-black text-slate-800">REPORT <span class="text-blue-700">INCIDENT</span></h2>
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">AI-Assisted Threat Submission</p>
+                <h2 class="logo-font text-2xl font-black text-slate-800">
+                    {% blocktranslate %}REPORT <span class="text-blue-700">INCIDENT</span>{% endblocktranslate %}
+                </h2>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    {% translate "AI-Assisted Threat Submission" %}
+                </p>
             </div>
         </div>
 
         <form method="POST" enctype="multipart/form-data" id="report-form" class="space-y-8">
             {% csrf_token %}
-            
+
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="space-y-2">
-                    <label class="text-xs font-black uppercase text-slate-500 ml-1">Threat Category</label>
+                    <label class="text-xs font-black uppercase text-slate-500 ml-1">
+                        {% translate "Threat Category" %}
+                    </label>
                     <div class="relative">
-                        <select id="incident_type" name="incident_type" onchange="updateSuggestions()" 
-                                class="appearance-none w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none font-bold text-slate-700 cursor-pointer transition-all">
-                            <option value="" disabled selected>Select Incident Type</option>
-                            <option value="Phishing">Phishing / Fake Link</option>
-                            <option value="OTP">OTP / Financial Fraud</option>
-                            <option value="Social">Social Engineering</option>
-                            <option value="Identity">Identity Theft</option>
-                            <option value="Malware">Malware / Virus</option>
+                        <select id="incident_type" name="incident_type" onchange="updateSuggestions()"
+                            class="appearance-none w-full p-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none font-bold text-slate-700 cursor-pointer transition-all hover:bg-white">
+                            <option value="" disabled selected>
+                                {% translate "Select Incident Type" %}
+                            </option>
+                            <option value="Phishing">{% translate "Phishing / Fake Link" %}</option>
+                            <option value="OTP">{% translate "OTP / Financial Fraud" %}</option>
+                            <option value="Social">{% translate "Social Engineering" %}</option>
+                            <option value="Identity">{% translate "Identity Theft" %}</option>
+                            <option value="Malware">{% translate "Malware / Virus" %}</option>
                         </select>
-                        <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"></i>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-blue-600">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </div>
                     </div>
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-xs font-black uppercase text-slate-500 ml-1">Evidence (Screenshot/File)</label>
+                    <label class="text-xs font-black uppercase text-slate-500 ml-1">
+                        {% translate "Evidence (Screenshot/File)" %}
+                    </label>
                     <div class="relative group">
-                        <input type="file" id="file-upload" name="evidence" onchange="handleFileUpload(this)" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
-                        <div id="file-label-box" class="w-full p-4 bg-blue-50 border-2 border-dashed border-blue-200 rounded-2xl flex items-center justify-center gap-3 text-blue-600 group-hover:bg-blue-100 transition-colors">
-                            <i id="file-icon" class="fa-solid fa-cloud-arrow-up"></i>
-                            <span id="file-label-text" class="text-xs font-black uppercase">Attach Evidence</span>
+                        <input type="file" id="file-upload" name="evidence" onchange="handleFileUpload(this)"
+                            class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                        <div id="file-label-box"
+                            class="w-full p-4 bg-blue-50 border-2 border-dashed border-blue-200 rounded-2xl flex items-center justify-center gap-3 text-blue-600 group-hover:bg-blue-100 group-hover:border-blue-400 transition-all duration-300">
+                            <i id="file-icon" class="fa-solid fa-cloud-arrow-up text-lg"></i>
+                            <span id="file-label-text"
+                                  class="text-[10px] font-black uppercase tracking-widest">
+                                {% translate "Attach Evidence" %}
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div id="suggestion-container" class="hidden animate-in slide-in-from-top-2 duration-300">
-                <div class="bg-blue-50/50 border border-blue-100 p-5 rounded-3xl">
+                <div class="bg-blue-50/50 border border-2 border-dashed border-orange-200 p-5 rounded-3xl">
                     <p class="text-[10px] font-black text-blue-700 uppercase mb-3 tracking-widest"><i class="fa-solid fa-lightbulb mr-1"></i> Quick-Add Details:</p>
                     <div id="tag-cloud" class="flex flex-wrap gap-2"></div>
                 </div>
             </div>
 
             <div class="flex justify-end">
-                <button type="button" onclick="triggerAI()" class="text-[10px] font-black uppercase tracking-widest text-blue-700 bg-blue-50 px-6 py-2.5 rounded-full border border-blue-100 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                <button  id="ai-extract-btn" type="button" onclick="extractAIContent()" class="text-[10px] font-black uppercase tracking-widest text-blue-700 bg-blue-50 px-6 py-2.5 rounded-full border border-blue-100 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                     <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> AI Auto-Fill from Image
                 </button>
             </div>
 
+<div id="ai-loading-indicator" class="hidden text-xs font-black text-blue-600 uppercase tracking-widest mb-2">
+    <i class="fa-solid fa-spinner animate-spin mr-2"></i>
+    AI Engine analyzing image…
+</div>
+
             <div class="space-y-2">
-                <label class="text-xs font-black uppercase text-slate-500 ml-1">Incident Description</label>
-                <textarea id="incident-desc" name="description" rows="5" required 
-                          class="w-full p-5 bg-slate-50 border border-slate-200 rounded-3xl focus:ring-2 focus:ring-blue-500 outline-none font-medium text-slate-700 transition-all" 
-                          placeholder="Please provide details about the suspicious activity..."></textarea>
+                <label class="text-xs font-black uppercase text-slate-500 ml-1">
+                    {% translate "Incident Description" %}
+                </label>
+                <textarea id="incident-desc" name="description" rows="5" required
+                    class="w-full p-5 bg-slate-50 border border-slate-200 rounded-3xl focus:ring-2 focus:ring-blue-500 outline-none font-medium text-slate-700 transition-all"
+                    placeholder="{% translate 'Please provide details about the suspicious activity...' %}"></textarea>
             </div>
 
             <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <input type="checkbox" name="is_anonymous" {% if is_anon %}checked{% endif %} class="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
+                <input type="checkbox" name="is_anonymous" {% if is_anon %}checked{% endif %}
+                    class="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                 <div>
-                    <p class="text-xs font-black text-slate-800 uppercase">Submit as Anonymous</p>
-                    <p class="text-[10px] text-slate-500 font-medium">Your personal details will not be linked to this report.</p>
+                    <p class="text-xs font-black text-slate-800 uppercase">
+                        {% translate "Submit as Anonymous" %}
+                    </p>
+                    <p class="text-[10px] text-slate-500 font-medium">
+                        {% translate "Your personal details will not be linked to this report." %}
+                    </p>
                 </div>
             </div>
 
-            <button type="submit" class="w-full btn-glow text-white font-black py-5 rounded-2xl uppercase tracking-[0.3em] text-sm flex items-center justify-center gap-3">
-                <i class="fa-solid fa-shield-virus text-lg"></i> Analyze & Submit Report
+            <button type="submit"
+                class="w-full btn-glow text-white font-black py-5 rounded-2xl uppercase tracking-[0.3em] text-sm flex items-center justify-center gap-3">
+                <i class="fa-solid fa-shield-virus text-lg"></i>
+                {% translate "Analyze & Submit Report" %}
             </button>
         </form>
     </div>
@@ -127,16 +174,22 @@
             const originalName = input.files[0].name;
             const timestamp = new Date().getTime();
             const secureName = `EVID_${timestamp}_${originalName.toUpperCase()}`;
-            
+
             // UI Feedback
             document.getElementById('display-file-name').innerText = secureName;
             document.getElementById('file-label-text').innerText = "File Locked";
             document.getElementById('file-label-box').classList.replace('bg-blue-50', 'bg-green-50');
             document.getElementById('file-label-box').classList.replace('text-blue-600', 'text-green-600');
             document.getElementById('file-icon').classList.replace('fa-cloud-arrow-up', 'fa-file-shield');
-            
+
             // Show Success Popup
             document.getElementById('success-modal').classList.add('modal-active');
+            // Success state: Green UI
+        box.classList.remove('bg-blue-50', 'border-blue-200', 'text-blue-600');
+        box.classList.add('bg-green-50', 'border-green-300', 'text-green-600');
+        
+        text.innerText = input.files[0].name.substring(0, 20) + "...";
+        icon.className = "fa-solid fa-circle-check text-lg animate-pulse";
         }
     }
 
@@ -149,7 +202,7 @@
         const area = document.getElementById('incident-desc');
         const typeSelect = document.getElementById('incident_type');
         const currentType = typeSelect.value;
-        
+
         if (!currentType) {
             alert("Please select a Threat Category first so AI can analyze the context.");
             return;
@@ -158,7 +211,7 @@
         const originalPlaceholder = area.placeholder;
         area.value = "";
         area.placeholder = "SECURE AI ENGINE: Analyzing pixels for threat markers...";
-        
+
         const aiResponses = {
             'Phishing': "SECURE AI LOG: System has analyzed the attached screenshot. It identifies a high-confidence phishing campaign impersonating a Government login portal. Fraudulent URL detected aiming to harvest user credentials.",
             'OTP': "SECURE AI LOG: Image analysis confirms a fraudulent SMS request for a One-Time Password (OTP). Patterns match known financial social-engineering tactics targeting banking apps.",
@@ -173,12 +226,96 @@
         }, 1000);
     }
 
-    // 3. Dynamic Tag Generation
+async function extractAIContent() {
+    const fileInput = document.getElementById('file-upload');
+    const area = document.getElementById('incident-desc');
+    const btn = document.getElementById('ai-extract-btn');
+    const loader = document.getElementById('ai-loading-indicator');
+    const incidentType = document.getElementById('incident_type')?.value;
+
+    if (!fileInput.files || !fileInput.files[0]) {
+        alert("Please attach a screenshot first for AI extraction.");
+        return;
+    }
+
+    /* =========================
+       UI: START LOADING STATE
+    ========================== */
+    area.value = "";
+    area.placeholder = "AI ENGINE: Scanning image pixels for fraud markers...";
+    btn.disabled = true;
+    btn.classList.add('opacity-60', 'cursor-not-allowed');
+
+    loader.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-2"></i> AI analyzing image...';
+    loader.classList.remove('hidden');
+
+    /* =========================
+       PREPARE FORM DATA
+    ========================== */
+    const formData = new FormData();
+    formData.append('image', fileInput.files[0]);
+    formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+    try {
+        const response = await fetch('{% url "api_extract" %}', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error("AI API failed");
+        }
+
+        const data = await response.json();
+
+        /* =========================
+           SUCCESS
+        ========================== */
+        const cleanText = (data.content || "No significant indicators detected.")
+            .replace(/\*\*(.*?)\*\*/g, '$1')        // remove bold **
+            .replace(/^\s*[\*\-]\s+/gm, '• ')       // bullets
+            .replace(/^\s*\d+\.\s+/gm, '• ')        // numbered lists
+            .replace(/#+\s*/g, '')                  // headings
+            .trim();
+
+        area.value = "AI EXTRACTED LOG:\n" + cleanText;
+
+        loader.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> AI analysis complete';
+        setTimeout(() => loader.classList.add('hidden'), 1500);
+    } catch (error) {
+    area.value = "AI ERROR: " + error.message;
+    console.error("AI Extract Error:", error);
+
+        /* =========================
+           FALLBACK SIMULATION
+        ========================== */
+        const simulations = {
+            'Phishing': "AI EXTRACTED (Fallback): Screenshot resembles a fraudulent government login page with suspicious redirect URL and credential harvesting indicators.",
+            'OTP': "AI EXTRACTED (Fallback): Image indicates SMS requesting a one-time password from an unverified sender. High social engineering probability.",
+            'Malware': "AI EXTRACTED (Fallback): Screenshot shows abnormal file extensions (.locked) and ransom-style system message consistent with malware infection."
+        };
+
+        area.value = simulations[incidentType] || 
+            "AI EXTRACTED (Fallback): General fraud indicators detected. Manual review recommended.";
+
+        loader.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-2"></i> AI scan failed – fallback used';
+
+        setTimeout(() => loader.classList.add('hidden'), 2000);
+    } finally {
+        /* =========================
+           RESET UI
+        ========================== */
+        btn.disabled = false;
+        btn.classList.remove('opacity-60', 'cursor-not-allowed');
+    }
+}
+
+// 3. Dynamic Tag Generation
     function updateSuggestions() {
         const type = document.getElementById('incident_type').value;
         const container = document.getElementById('suggestion-container');
         const cloud = document.getElementById('tag-cloud');
-        
+
         const suggestions = {
             'Phishing': ['Fake bank URL', 'Email from unknown sender', 'Urgent verify link'],
             'OTP': ['Asked for 6-digit PIN', 'Unauthorized debit', 'KYC Verification call'],
@@ -189,7 +326,7 @@
 
         if (type && suggestions[type]) {
             container.classList.remove('hidden');
-            cloud.innerHTML = suggestions[type].map(tag => 
+            cloud.innerHTML = suggestions[type].map(tag =>
                 `<button type="button" onclick="appendTag('${tag}')" class="bg-white border border-blue-200 px-4 py-1.5 rounded-full text-[10px] font-bold text-slate-600 hover:bg-blue-600 hover:text-white transition-all uppercase">
                     + ${tag}
                 </button>`

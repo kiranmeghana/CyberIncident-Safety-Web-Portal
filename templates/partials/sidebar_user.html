@@ -1,0 +1,23 @@
+{% load i18n %}
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 mb-3 mt-4">{% translate "Intelligence" %}</p>
+
+<a href="{% url 'user_dashboard' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'user_dashboard' %}active-link{% endif %}">
+    <i class="fa-solid fa-gauge-high"></i> {% translate "My Dashboard" %}
+</a>
+
+<a href="{% url 'report_incident' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'report_incident' %}active-link{% endif %}">
+    <i class="fa-solid fa-file-circle-exclamation"></i> {% translate "Report Incident" %}
+</a>
+
+<a href="{% url 'chatbot:full_chat' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs">
+    <i class="fa-solid fa-robot"></i> {% translate "AI Analyzer" %}
+</a>
+
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 mb-3 mt-6">{% translate "Knowledge" %}</p>
+<a href="{% url 'resources' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs">
+    <i class="fa-solid fa-shield"></i> {% translate "Security Library" %}
+</a>
+
+<a href="{% url 'services' %}" class="flex items-center gap-3 p-3 rounded-xl text-slate-600 hover:bg-blue-50 font-bold text-xs">
+    <i class="fa-solid fa-microchip"></i> {% translate "Core Services" %}
+</a>

@@ -1,0 +1,109 @@
+{% extends 'base2.html' %}
+{% load i18n %}
+
+{% block dashboard_content %}
+<div class="max-w-4xl mx-auto">
+    <div class="mb-10">
+        <h1 class="text-3xl font-black text-slate-800 uppercase tracking-tight">{% translate "Account Settings" %}</h1>
+        <p class="text-slate-500 font-medium">{% translate "Manage your personal information and language preferences." %}</p>
+    </div>
+
+    <div class="grid gap-8">
+        <div class="bg-white rounded-[3rem] border border-slate-100 shadow-sm overflow-hidden">
+            <div class="p-8 border-b border-slate-50 flex items-center justify-between bg-slate-50/50">
+                <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">{% translate "Personal Profile" %}</h3>
+                <i class="fa-solid fa-user-shield text-blue-700"></i>
+            </div>
+            
+            <form method="post" class="p-10 space-y-6">
+                {% csrf_token %}
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">{% translate "Username" %}</label>
+                        <input type="text" value="{{ user.username }}" disabled 
+                            class="w-full bg-slate-50 border border-slate-100 p-4 rounded-2xl text-slate-400 font-bold text-sm cursor-not-allowed">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">{% translate "Email Address" %}</label>
+                        <input type="email" value="{{ user.email }}" 
+                            class="w-full bg-white border border-slate-200 p-4 rounded-2xl text-slate-700 font-bold text-sm focus:ring-4 focus:ring-blue-700/10 focus:border-blue-700 outline-none transition-all">
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white px-10 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-blue-200">
+                        {% translate "Update Profile" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="bg-white rounded-[3rem] border border-slate-100 shadow-sm overflow-hidden">
+            <div class="p-8 border-b border-slate-50 flex items-center justify-between bg-slate-50/50">
+                <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">{% translate "Language & Interface" %}</h3>
+                <i class="fa-solid fa-language text-blue-700"></i>
+            </div>
+
+            <div class="p-10 space-y-8">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-sm font-bold text-slate-700">{% translate "Default System Language" %}</p>
+                        <p class="text-xs text-slate-400 font-medium">{% translate "Choose your preferred language for incident reports and AI analysis." %}</p>
+                    </div>
+                    
+                     <div class="relative inline-block text-left" id="custom-lang-selector"> <button type="button"
+                        onclick="toggleDropdown()"
+                        class="flex items-center gap-2 bg-slate-100 hover:bg-white px-4 py-2 rounded-full border border-slate-200 transition-all duration-300 group">
+                        <i class="fa-solid fa-language text-blue-700 text-[20px]"></i> <span
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-700"> 
+                            {% get_current_language as CURRENT_LANG %} {% if CURRENT_LANG == 'hi' %}HINDI{% elif CURRENT_LANG == 'te' %}TELUGU{% else %}ENGLISH{% endif %} 
+                        </span> <i class="fa-solid fa-chevron-down text-[8px] text-slate-400 group-hover:text-blue-700"></i>
+                    </button>
+                    <div id="lang-dropdown"
+                        class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white border border-slate-200 shadow-xl z-[60] overflow-hidden">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="/">
+                            <button name="language" value="en" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700 border-b border-slate-100">ENGLISH</button>
+                            <button name="language" value="hi" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700 border-b border-slate-100">HINDI</button>
+                            <button name="language" value="te" type="submit"
+                                class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700">TELUGU</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+
+                <div class="pt-6 border-t border-slate-50 flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-bold text-slate-700">{% translate "Security Notifications" %}</p>
+                        <p class="text-xs text-slate-400 font-medium">{% translate "Receive immediate alerts for high-risk cyber threats." %}</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-700"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function toggleDropdown() { document.getElementById('lang-dropdown').classList.toggle('hidden'); }
+        function toggleChat() {
+            const window = document.getElementById('chat-window');
+            window.classList.toggle('hidden');
+            if (!window.classList.contains('hidden')) document.getElementById('chat-input').focus();
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.closest('#custom-lang-selector')) {
+                const dropdown = document.getElementById('lang-dropdown');
+                if (dropdown && !dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
+            }
+        }
+</script>
+{% endblock %}

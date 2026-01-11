@@ -1,0 +1,165 @@
+{% extends 'base1.html' %}
+{% load i18n %}
+
+{% block content %}
+<style>
+    /* Jumping Dots Animation */
+    .typing-dot {
+        width: 6px; height: 6px;
+        background: #94a3b8;
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+        0%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-6px); }
+    }
+    /* Structured Output Styling */
+    .ai-response-box h3 { color: #22d3ee; font-weight: 900; margin-bottom: 0.5rem; }
+    .ai-response-box strong { color: #f8fafc; font-weight: 700; }
+</style>
+
+<div class="max-w-6xl mx-auto py-8 px-4 h-[88vh] flex flex-col">
+    <div class="bg-white rounded-[3rem] shadow-2xl flex-1 flex flex-col overflow-hidden border border-slate-100 glow-border">
+        
+        <div class="bg-blue-700 p-6 text-white flex items-center justify-between shadow-lg">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center animate-pulse">
+                    <i class="fa-solid fa-brain text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="logo-font text-lg font-black tracking-widest uppercase">
+                        {% translate "Advanced AI Threat Intelligence" %}
+                    </h2>
+                    <p class="text-[10px] text-blue-200 uppercase font-bold tracking-[0.2em]">
+                        {% translate "Multimodal Analysis Engaged" %}
+                    </p>
+                </div>
+            </div>
+            <a href="{% url 'resources' %}"
+               class="bg-white/10 hover:bg-white/20 px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all">
+                {% translate "Exit terminal" %}
+            </a>
+        </div>
+
+        <div id="full-chat-content" class="flex-1 p-8 overflow-y-auto space-y-6 bg-slate-50/50 flex flex-col">
+            <div class="bg-blue-100 p-6 rounded-[2.5rem] rounded-tl-none font-bold text-blue-800 self-start max-w-[75%] border border-blue-200 shadow-sm">
+                {% translate "Deep analysis core active. Upload any evidence screenshot for an immediate safety assessment." %}
+            </div>
+        </div>
+
+        <div id="image-preview-container" class="hidden px-10 py-6 bg-white border-t border-slate-100">
+            <div class="relative inline-block">
+                <img id="image-preview" src="#" class="h-44 rounded-3xl border-4 border-blue-500 shadow-2xl">
+                <button onclick="clearImage()"
+                        class="absolute -top-4 -right-4 bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-2xl hover:bg-red-700 border-4 border-white transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="p-8 bg-white border-t border-slate-100">
+            <div class="flex items-center gap-4 bg-slate-100 p-3 rounded-[3.5rem] shadow-inner border border-slate-200 focus-within:ring-4 focus-within:ring-blue-700/10 transition-all">
+                <label for="ai-image-upload"
+                       class="w-16 h-16 flex items-center justify-center bg-white rounded-full shadow-md cursor-pointer hover:bg-blue-50 transition-all text-blue-700 border-2 border-transparent hover:border-blue-700">
+                    <i class="fa-solid fa-camera-retro text-2xl"></i>
+                    <input type="file" id="ai-image-upload" accept="image/*" class="hidden" onchange="previewImage(this)">
+                </label>
+
+                <input id="full-chat-input"
+                       type="text"
+                       placeholder="{% translate 'Describe the threat or suspicious link...' %}"
+                       class="flex-1 bg-transparent text-xl p-3 outline-none font-medium placeholder:text-slate-400"
+                       onkeypress="if(event.key === 'Enter') sendFullMsg()">
+
+                <button onclick="sendFullMsg()"
+                        class="btn-glow text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-xl transform active:scale-90 transition-transform">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let selectedImageBase64 = null;
+
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('image-preview').src = e.target.result;
+                document.getElementById('image-preview-container').classList.remove('hidden');
+                selectedImageBase64 = e.target.result.split(',')[1];
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function clearImage() {
+        selectedImageBase64 = null;
+        document.getElementById('ai-image-upload').value = "";
+        document.getElementById('image-preview-container').classList.add('hidden');
+    }
+
+    async function sendFullMsg() {
+        const input = document.getElementById('full-chat-input');
+        const content = document.getElementById('full-chat-content');
+        const userText = input.value.trim();
+        if (!userText && !selectedImageBase64) return;
+
+        let userHTML = `<div class="bg-white border border-slate-200 p-6 rounded-[2.5rem] rounded-tr-none font-bold text-slate-700 self-end max-w-[75%] shadow-lg ml-auto animate-in slide-in-from-right-2">`;
+        if (selectedImageBase64)
+            userHTML += `<img src="data:image/jpeg;base64,${selectedImageBase64}" class="w-64 rounded-2xl mb-4 shadow-md">`;
+        userHTML += `<span>${userText || "{% translate 'Analyzing Evidence...' %}"}</span></div>`;
+        content.innerHTML += userHTML;
+
+        const tempText = userText;
+        const tempImage = selectedImageBase64;
+        input.value = "";
+        clearImage();
+        content.scrollTop = content.scrollHeight;
+
+        const typingId = "typing-" + Date.now();
+        content.innerHTML += `
+            <div id="${typingId}" class="self-start max-w-[70%] mb-4">
+                <div class="bg-slate-100 p-4 rounded-3xl rounded-tl-none flex gap-1 items-center">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>`;
+        content.scrollTop = content.scrollHeight;
+
+        try {
+            const response = await fetch('/chatbot/query/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+                body: JSON.stringify({ msg: tempText, image: tempImage, lang: ACTIVE_LANG })
+            });
+            const data = await response.json();
+
+            document.getElementById(typingId).remove();
+
+            let formattedReply = data.reply
+                .replace(/^### (.*$)/gim, '<h3 class="text-lg font-black uppercase text-cyan-300 mb-2">$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-bold">$1</strong>')
+                .replace(/\n/g, '<br>');
+
+            content.innerHTML += `
+                <div class="bg-blue-700 text-white p-6 rounded-[2.5rem] rounded-tl-none shadow-2xl self-start max-w-[85%] animate-in fade-in ai-response-box">
+                    <div class="flex items-center gap-2 mb-3 text-cyan-300 text-[10px] font-black uppercase tracking-widest">
+                        <i class="fa-solid fa-shield-halved"></i> AI Intelligence Output
+                    </div>
+                    ${formattedReply}
+                </div>`;
+            content.scrollTop = content.scrollHeight;
+        } catch (error) {
+            document.getElementById(typingId).innerHTML =
+                '<p class="text-red-500 text-xs">Error connecting to Intelligence core.</p>';
+        }
+    }
+</script>
+{% endblock %}

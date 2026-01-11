@@ -1,0 +1,28 @@
+{% load i18n %}
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 mb-3 mt-4">{% translate "Command & Control" %}</p>
+
+<a href="{% url 'admin_dashboard' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'admin_dashboard' %}active-link{% endif %}">
+    <i class="fa-solid fa-tower-observation"></i> {% translate "Command Center" %}
+</a>
+
+<a href="{% url 'admin_ai_monitor' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'admin_ai_monitor' %}active-link{% endif %}">
+    <i class="fa-solid fa-microchip"></i> {% translate "AI Core Monitor" %}
+</a>
+
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 mb-3 mt-6">{% translate "Global oversight" %}</p>
+<a href="{% url 'admin_user_management' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'admin_user_management' %}active-link{% endif %}">
+    <i class="fa-solid fa-users-gear"></i> {% translate "User Directory" %}
+</a>
+
+<a href="{% url 'admin_analytics' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs {% if request.resolver_match.url_name == 'admin_analytics' %}active-link{% endif %}">
+    <i class="fa-solid fa-chart-pie"></i> {% translate "Threat Analytics" %}
+</a>
+
+<p class="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 mb-3 mt-6">{% translate "Knowledge" %}</p>
+<a href="{% url 'resources' %}" class="flex items-center gap-3 p-3.5 rounded-2xl text-slate-600 hover:bg-blue-50 transition-all font-bold text-xs">
+    <i class="fa-solid fa-shield"></i> {% translate "Security Library" %}
+</a>
+
+<a href="{% url 'services' %}" class="flex items-center gap-3 p-3 rounded-xl text-slate-600 hover:bg-blue-50 font-bold text-xs">
+    <i class="fa-solid fa-microchip"></i> {% translate "Core Services" %}
+</a>

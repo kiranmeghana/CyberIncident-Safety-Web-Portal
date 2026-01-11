@@ -1,0 +1,786 @@
+# Hindi translation for Defence Cyber Safety Portal.
+# Copyright (C) 2026
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-11 01:06+0530\n"
+"PO-Revision-Date: 2026-01-11 10:00+0530\n"
+"Last-Translator: AI Assistant\n"
+"Language-Team: Hindi\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\core\settings.py:106
+msgid "English"
+msgstr "अंग्रेजी"
+
+#: .\core\settings.py:107
+msgid "Hindi"
+msgstr "हिंदी"
+
+#: .\core\settings.py:108
+msgid "Telugu"
+msgstr "तेलुगु"
+
+#: .\templates\accounts\login.html:10
+msgid "SECURE <span class=\"text-blue-700\">LOGIN</span>"
+msgstr "सुरक्षित <span class=\"text-blue-700\">लॉगिन</span>"
+
+#: .\templates\accounts\login.html:13
+msgid "Defence Personnel & Public Access"
+msgstr "रक्षा कर्मी और आम जनता के लिए"
+
+#: .\templates\accounts\login.html:30
+msgid "Username"
+msgstr "यूज़रनेम"
+
+#: .\templates\accounts\login.html:44
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\templates\accounts\login.html:57
+#: .\templates\registration\password_reset_email.html:33
+msgid "Reset Password"
+msgstr "पासवर्ड बदलें"
+
+#: .\templates\accounts\login.html:60
+msgid "Create Account"
+msgstr "नया अकाउंट बनाएं"
+
+#: .\templates\accounts\login.html:69
+msgid "Authenticate"
+msgstr "पहचान की जांच करें"
+
+#: .\templates\accounts\login.html:79 .\templates\landing.html:36
+msgid "Report Anonymously"
+msgstr "बिना नाम बताए रिपोर्ट करें"
+
+#: .\templates\accounts\signup.html:10
+msgid "JOIN <span class=\"text-blue-700\">NETWORK</span>"
+msgstr "नेटवर्क से <span class=\"text-blue-700\">जुड़ें</span>"
+
+#: .\templates\accounts\signup.html:13
+msgid "Register for Cyber Intelligence"
+msgstr "साइबर सुरक्षा के लिए रजिस्टर करें"
+
+#: .\templates\accounts\signup.html:30
+msgid "Username / Handle"
+msgstr "यूज़रनेम / हैंडल"
+
+#: .\templates\accounts\signup.html:42
+msgid "Official/Personal Email"
+msgstr "ऑफिसियल/पर्सनल ईमेल"
+
+#: .\templates\accounts\signup.html:56
+msgid "Security Password"
+msgstr "सुरक्षा पासवर्ड"
+
+#: .\templates\accounts\signup.html:70
+msgid "Multi-factor authentication (OTP) will be triggered after registration."
+msgstr "रजिस्ट्रेशन के बाद आपके पास एक OTP आएगा।"
+
+#: .\templates\accounts\signup.html:79
+msgid "Initialize Account"
+msgstr "अकाउंट शुरू करें"
+
+#: .\templates\accounts\signup.html:84
+msgid "Existing user?"
+msgstr "पुराने यूज़र हैं?"
+
+#: .\templates\accounts\signup.html:86
+msgid "Sign In"
+msgstr "लॉगिन करें"
+
+#: .\templates\accounts\verify_failed.html:10
+msgid "Verification <span class=\"text-red-600\">Failed</span>"
+msgstr "जांच <span class=\"text-red-600\">असफल रही</span>"
+
+#: .\templates\accounts\verify_failed.html:14
+msgid "The code is invalid or has expired. Security protocols require a retry."
+msgstr "कोड गलत है या समय खत्म हो गया है। कृपया दोबारा कोशिश करें।"
+
+#: .\templates\accounts\verify_failed.html:19
+msgid "Restart Registration"
+msgstr "रजिस्ट्रेशन दोबारा शुरू करें"
+
+#: .\templates\accounts\verify_otp.html:10
+msgid "Identity <span class=\"text-blue-700\">Verification</span>"
+msgstr "पहचान की <span class=\"text-blue-700\">जांच</span>"
+
+#: .\templates\accounts\verify_otp.html:14
+msgid "Enter the 6-digit code sent to your email"
+msgstr "अपने ईमेल पर भेजा गया 6 अंकों का कोड डालें"
+
+#: .\templates\accounts\verify_otp.html:24
+msgid "000000"
+msgstr "000000"
+
+#: .\templates\accounts\verify_otp.html:32
+msgid "Verify & Activate"
+msgstr "जांचें और शुरू करें"
+
+#: .\templates\accounts\verify_success.html:12
+msgid "Access <span class=\"text-green-600\">Granted</span>"
+msgstr "पहुंच की <span class=\"text-green-600\">अनुमति मिली</span>"
+
+#: .\templates\accounts\verify_success.html:16
+msgid ""
+"Your account has been successfully verified in the cyber defense network."
+msgstr "आपका अकाउंट साइबर सुरक्षा नेटवर्क में सफलतापूर्वक जुड़ गया है।"
+
+#: .\templates\accounts\verify_success.html:21
+msgid "Go to Dashboard"
+msgstr "डैशबोर्ड पर जाएं"
+
+#: .\templates\base1.html:201
+msgid "Defence Portal"
+msgstr "रक्षा पोर्टल"
+
+#: .\templates\base1.html:211
+msgid "Home"
+msgstr "होम"
+
+#: .\templates\base1.html:215
+msgid "Services"
+msgstr "सेवाएं"
+
+#: .\templates\base1.html:219
+msgid "Resources"
+msgstr "जानकारी और मदद"
+
+#: .\templates\base1.html:223
+msgid "Contact"
+msgstr "संपर्क करें"
+
+#: .\templates\base1.html:258
+#, python-format
+msgid "Hi, %(user.username)s"
+msgstr "नमस्ते, %(user.username)s"
+
+#: .\templates\base1.html:261
+msgid "LOGOUT"
+msgstr "लॉगआउट"
+
+#: .\templates\base1.html:266
+msgid "LOGIN"
+msgstr "लॉगिन"
+
+#: .\templates\base1.html:270
+msgid "JOIN NETWORK"
+msgstr "नेटवर्क से जुड़ें"
+
+#: .\templates\base1.html:284
+msgid "Defence Cyber Safety Portal | AI Enabled Infrastructure"
+msgstr "रक्षा साइबर सुरक्षा पोर्टल | AI द्वारा संचालित"
+
+#: .\templates\base1.html:307
+msgid ""
+"Hello! I am your AI Cyber Assistant. How can I help you stay safe today?"
+msgstr "नमस्ते! मैं आपका AI साइबर सहायक हूँ। आज मैं आपकी सुरक्षा में क्या मदद कर सकता हूँ?"
+
+#: .\templates\base1.html:312
+msgid "Ask about threats..."
+msgstr "खतरों के बारे में पूछें..."
+
+#: .\templates\chatbot\chatbot.html:34
+msgid "Advanced AI Threat Intelligence"
+msgstr "एडवांस AI खतरा पहचान"
+
+#: .\templates\chatbot\chatbot.html:37
+msgid "Multimodal Analysis Engaged"
+msgstr "गहन जांच शुरू"
+
+#: .\templates\chatbot\chatbot.html:43
+msgid "Exit terminal"
+msgstr "बाहर निकलें"
+
+#: .\templates\chatbot\chatbot.html:49
+msgid ""
+"Deep analysis core active. Upload any evidence screenshot for an immediate "
+"safety assessment."
+msgstr "जांच सिस्टम तैयार है। तुरंत जांच के लिए कोई भी फोटो (स्क्रीनशॉट) अपलोड करें।"
+
+#: .\templates\chatbot\chatbot.html:73
+msgid "Describe the threat or suspicious link..."
+msgstr "खतरे या शक वाले लिंक के बारे में बताएं..."
+
+#: .\templates\chatbot\chatbot.html:116
+msgid "Analyzing Evidence..."
+msgstr "सबूतों की जांच हो रही है..."
+
+#: .\templates\dashboards\admin_dashboard.html:3
+msgid "admin"
+msgstr "एडमिन"
+
+#: .\templates\landing.html:13
+msgid "SIH25183: DEFENCE PROTOCOL"
+msgstr "SIH25183: रक्षा नियम"
+
+#: .\templates\landing.html:17
+msgid "AI POWERED"
+msgstr "AI द्वारा संचालित"
+
+#: .\templates\landing.html:19
+msgid "CYBER DEFENCE"
+msgstr "साइबर रक्षा"
+
+#: .\templates\landing.html:24
+msgid ""
+"A high-security intelligence portal for defence personnel and civilians to "
+"mitigate digital threats through real-time AI analysis and automated safety "
+"countermeasures."
+msgstr "रक्षा कर्मियों और नागरिकों के लिए एक सुरक्षित पोर्टल, जो AI की मदद से डिजिटल खतरों को रोकता है।"
+
+#: .\templates\landing.html:30
+msgid "Access Portal"
+msgstr "पोर्टल खोलें"
+
+#: .\templates\landing.html:43
+msgid "AI CORE"
+msgstr "मुख्य AI"
+
+#: .\templates\landing.html:44
+msgid "Risk Prediction"
+msgstr "खतरे का अनुमान"
+
+#: .\templates\landing.html:49
+msgid "LIVE BOT"
+msgstr "लाइव बॉट"
+
+#: .\templates\landing.html:50
+msgid "Real-Time Help"
+msgstr "तुरंत मदद"
+
+#: .\templates\landing.html:55
+msgid "GLOBAL"
+msgstr "ग्लोबल"
+
+#: .\templates\landing.html:56
+msgid "Multilingual"
+msgstr "कई भाषाएं"
+
+#: .\templates\landing.html:82
+msgid "SYSTEM CAPABILITIES"
+msgstr "सिस्टम की खूबियां"
+
+#: .\templates\landing.html:91
+msgid "NLP Analysis"
+msgstr "भाषा की जांच"
+
+#: .\templates\landing.html:92
+msgid "Advanced intent detection and keyword mapping."
+msgstr "मैसेज के पीछे की मंशा और शब्दों की गहराई से पहचान।"
+
+#: .\templates\landing.html:101
+msgid "Automated Guidance"
+msgstr "अपने आप मदद"
+
+#: .\templates\landing.html:102
+msgid "Instant safety steps based on threat severity."
+msgstr "खतरे के हिसाब से सुरक्षा के तुरंत उपाय।"
+
+#: .\templates\landing.html:111
+msgid "Conversational AI"
+msgstr "बातचीत करने वाला AI"
+
+#: .\templates\landing.html:112
+msgid "Guided incident reporting via intelligent chatbot."
+msgstr "चैटबॉट की मदद से आसानी से शिकायत दर्ज करें।"
+
+#: .\templates\landing.html:121
+msgid "Secure Vault"
+msgstr "सुरक्षित तिजोरी"
+
+#: .\templates\landing.html:122
+msgid "Encrypted storage for evidence and documentation."
+msgstr "सबूतों और कागजात के लिए सुरक्षित स्टोरेज।"
+
+#: .\templates\portal\contact.html:9
+msgid "Support Command"
+msgstr "सहायता केंद्र"
+
+#: .\templates\portal\contact.html:13
+msgid "Contact <span class=\"text-blue-700\">Experts</span>"
+msgstr "<span class=\"text-blue-700\">एक्सपर्ट्स</span> से बात करें"
+
+#: .\templates\portal\contact.html:17
+msgid ""
+"Access official government helplines or send a secure inquiry to our "
+"internal cyber defense team."
+msgstr "सरकारी हेल्पलाइन का उपयोग करें या हमारी टीम को अपनी समस्या भेजें।"
+
+#: .\templates\portal\contact.html:27
+msgid "National Cyber Helpline (24/7)"
+msgstr "राष्ट्रीय साइबर हेल्पलाइन (24/7)"
+
+#: .\templates\portal\contact.html:39
+msgid "CERT-In Incident Reporting"
+msgstr "CERT-In घटना रिपोर्टिंग"
+
+#: .\templates\portal\contact.html:51
+msgid "Official Defence Support"
+msgstr "आधिकारिक रक्षा सहायता"
+
+#: .\templates\portal\contact.html:61
+msgid "Secure Communication"
+msgstr "सुरक्षित बातचीत"
+
+#: .\templates\portal\contact.html:69
+msgid "Full Name (Optional)"
+msgstr "पूरा नाम (वैकल्पिक)"
+
+#: .\templates\portal\contact.html:73
+msgid "Enter name for personalized support"
+msgstr "सही मदद के लिए अपना नाम लिखें"
+
+#: .\templates\portal\contact.html:79
+msgid "Emergency Level"
+msgstr "आपातकालीन स्तर"
+
+#: .\templates\portal\contact.html:83
+msgid "General Inquiry"
+msgstr "सामान्य पूछताछ"
+
+#: .\templates\portal\contact.html:84
+msgid "Urgent Incident Support"
+msgstr "तुरंत सहायता की जरूरत"
+
+#: .\templates\portal\contact.html:85
+msgid "Technical Issue"
+msgstr "तकनीकी समस्या"
+
+#: .\templates\portal\contact.html:91
+msgid "Message"
+msgstr "संदेश"
+
+#: .\templates\portal\contact.html:95
+msgid "Briefly describe your request..."
+msgstr "अपनी समस्या के बारे में संक्षेप में बताएं..."
+
+#: .\templates\portal\contact.html:102
+msgid "Submit Intelligence Report"
+msgstr "रिपोर्ट जमा करें"
+
+#: .\templates\portal\recommendations.html:11
+msgid "CRITICAL THREAT DETECTED"
+msgstr "गंभीर खतरा पाया गया"
+
+#: .\templates\portal\recommendations.html:16
+msgid "MODERATE RISK"
+msgstr "मध्यम खतरा"
+
+#: .\templates\portal\recommendations.html:21
+msgid "LOW RISK DETECTED"
+msgstr "कम खतरा पाया गया"
+
+#: .\templates\portal\recommendations.html:27
+msgid "SAFETY <span class=\"text-blue-700\">PROTOCOLS</span>"
+msgstr "सुरक्षा <span class=\"text-blue-700\">नियम</span>"
+
+#: .\templates\portal\recommendations.html:31
+msgid "Incident ID:"
+msgstr "रिपोर्ट आईडी:"
+
+#: .\templates\portal\recommendations.html:39
+msgid "MANDATORY DO'S"
+msgstr "जरूरी काम (क्या करें)"
+
+#: .\templates\portal\recommendations.html:53
+msgid "STRICT DON'Ts"
+msgstr "सख्त मनाही (क्या न करें)"
+
+#: .\templates\portal\recommendations.html:67
+msgid "Return to Home"
+msgstr "होम पर वापस जाएं"
+
+#: .\templates\portal\recommendations.html:70
+msgid "AI Analysis Score:"
+msgstr "AI जांच स्कोर:"
+
+#: .\templates\portal\report_form.html:41
+msgid "EVIDENCE SECURED"
+msgstr "सबूत सुरक्षित कर लिया गया"
+
+#: .\templates\portal\report_form.html:46
+msgid "Encrypted & Attached to Report"
+msgstr "सुरक्षित रूप से रिपोर्ट के साथ जोड़ दिया गया"
+
+#: .\templates\portal\report_form.html:50
+msgid "Continue Reporting"
+msgstr "रिपोर्ट जारी रखें"
+
+#: .\templates\portal\report_form.html:59
+msgid "Back to Home"
+msgstr "होम पर वापस जाएं"
+
+#: .\templates\portal\report_form.html:69
+msgid "REPORT <span class=\"text-blue-700\">INCIDENT</span>"
+msgstr "घटना की <span class=\"text-blue-700\">रिपोर्ट करें</span>"
+
+#: .\templates\portal\report_form.html:72
+msgid "AI-Assisted Threat Submission"
+msgstr "AI की मदद से रिपोर्ट जमा करें"
+
+#: .\templates\portal\report_form.html:83
+msgid "Threat Category"
+msgstr "खतरे की श्रेणी"
+
+#: .\templates\portal\report_form.html:89
+msgid "Select Incident Type"
+msgstr "घटना का प्रकार चुनें"
+
+#: .\templates\portal\report_form.html:91
+msgid "Phishing / Fake Link"
+msgstr "फिशिंग / फर्जी लिंक"
+
+#: .\templates\portal\report_form.html:92
+msgid "OTP / Financial Fraud"
+msgstr "OTP / पैसों की धोखाधड़ी"
+
+#: .\templates\portal\report_form.html:93
+msgid "Social Engineering"
+msgstr "सोशल इंजीनियरिंग"
+
+#: .\templates\portal\report_form.html:94
+msgid "Identity Theft"
+msgstr "पहचान की चोरी"
+
+#: .\templates\portal\report_form.html:95
+msgid "Malware / Virus"
+msgstr "मैलवेयर / वायरस"
+
+#: .\templates\portal\report_form.html:105
+msgid "Evidence (Screenshot/File)"
+msgstr "सबूत (फोटो या फाइल)"
+
+#: .\templates\portal\report_form.html:115
+msgid "Attach Evidence"
+msgstr "सबूत जोड़ें"
+
+#: .\templates\portal\report_form.html:124
+msgid "Incident Description"
+msgstr "घटना का विवरण"
+
+#: .\templates\portal\report_form.html:128
+msgid "Please provide details about the suspicious activity..."
+msgstr "कृपया संदिग्ध गतिविधि के बारे में जानकारी दें..."
+
+#: .\templates\portal\report_form.html:136
+msgid "Submit as Anonymous"
+msgstr "बिना नाम बताए भेजें"
+
+#: .\templates\portal\report_form.html:139
+msgid "Your personal details will not be linked to this report."
+msgstr "आपकी निजी जानकारी इस रिपोर्ट के साथ नहीं जोड़ी जाएगी।"
+
+#: .\templates\portal\report_form.html:147
+msgid "Analyze & Submit Report"
+msgstr "जांचें और रिपोर्ट भेजें"
+
+#: .\templates\portal\resources.html:10
+msgid "Public Resource Hub"
+msgstr "जनता के लिए जानकारी केंद्र"
+
+#: .\templates\portal\resources.html:14
+msgid "Awareness &<br><span class=\"text-blue-300\">Cyber Education</span>"
+msgstr "जागरूकता और <br><span class=\"text-blue-300\">साइबर शिक्षा</span>"
+
+#: .\templates\portal\resources.html:18
+msgid ""
+"Equipping defence personnel and citizens with the knowledge to neutralize "
+"digital threats."
+msgstr "रक्षा कर्मियों और नागरिकों को साइबर खतरों से लड़ने की जानकारी देना।"
+
+#: .\templates\portal\resources.html:29
+msgid "Security Guidelines"
+msgstr "सुरक्षा के नियम"
+
+#: .\templates\portal\resources.html:38
+msgid "Level: Critical"
+msgstr "स्तर: गंभीर"
+
+#: .\templates\portal\resources.html:42
+msgid "Phishing & Smishing Prevention"
+msgstr "फिशिंग से बचाव"
+
+#: .\templates\portal\resources.html:45
+msgid ""
+"Learn to identify malicious links, spoofed email headers, and social "
+"engineering tactics designed to steal sensitive credentials."
+msgstr "सीखें कैसे फर्जी लिंक और धोखाधड़ी वाले मैसेज की पहचान करें।"
+
+#: .\templates\portal\resources.html:54
+msgid "Level: Standard"
+msgstr "स्तर: सामान्य"
+
+#: .\templates\portal\resources.html:58
+msgid "Advanced Device Security"
+msgstr "डिवाइस की सुरक्षा"
+
+#: .\templates\portal\resources.html:61
+msgid ""
+"Guidelines for securing personal and official devices, using encrypted "
+"storage, and managing MFA protocols."
+msgstr "अपने मोबाइल और कंप्यूटर को सुरक्षित रखने के तरीके।"
+
+#: .\templates\portal\resources.html:69
+msgid "Spotted a Threat?"
+msgstr "कोई खतरा दिखा?"
+
+#: .\templates\portal\resources.html:72
+msgid ""
+"Contribute to the safety ecosystem by reporting incidents anonymously. Your "
+"intelligence helps protect the entire community."
+msgstr "बिना नाम बताए रिपोर्ट करके सुरक्षा में मदद करें। आपकी जानकारी सबको सुरक्षित रखेगी।"
+
+#: .\templates\portal\resources.html:77
+msgid "Quick Report"
+msgstr "जल्दी रिपोर्ट करें"
+
+#: .\templates\portal\resources.html:94
+msgid "AI Analysis Bot"
+msgstr "AI जांच बॉट"
+
+#: .\templates\portal\resources.html:97
+msgid ""
+"Unsure about a link or message? Chat with our AI to analyze threats in real-"
+"time and get instant safety scores."
+msgstr "लिंक पर शक है? हमारे AI से चैट करें और तुरंत पता लगाएं कि वह सुरक्षित है या नहीं।"
+
+#: .\templates\portal\resources.html:101
+msgid "Start Full AI Analysis"
+msgstr "पूरी AI जांच शुरू करें"
+
+#: .\templates\portal\resources.html:116
+msgid "Threat Alerts"
+msgstr "खतरे की चेतावनी"
+
+#: .\templates\portal\resources.html:123
+msgid "New Phishing Trend: Fake Banking Apps"
+msgstr "नया खतरा: नकली बैंकिंग ऐप्स"
+
+#: .\templates\portal\resources.html:129
+msgid "Ransomware Alert: Remote Desktop Vulnerability"
+msgstr "रैनसमवेयर अलर्ट: रिमोट डेस्कटॉप खतरा"
+
+#: .\templates\portal\resources.html:136
+msgid "View All Alerts"
+msgstr "सभी चेतावनियां देखें"
+
+#: .\templates\portal\services.html:8
+msgid "Defence <span class=\"text-blue-700\">Capabilities</span>"
+msgstr "रक्षा <span class=\"text-blue-700\">क्षमताएं</span>"
+
+#: .\templates\portal\services.html:12
+msgid "SIH25183: AI-Enabled Cyber Safety Ecosystem"
+msgstr "SIH25183: AI द्वारा संचालित साइबर सुरक्षा"
+
+#: .\templates\portal\services.html:20
+msgid "Login Required"
+msgstr "लॉगिन जरूरी है"
+
+#: .\templates\portal\services.html:26
+msgid "Identity & Access"
+msgstr "पहचान और पहुंच"
+
+#: .\templates\portal\services.html:29
+msgid ""
+"Secure role-based access for registered personnel with multi-factor "
+"authentication support."
+msgstr "OTP के साथ रजिस्टर यूज़र्स के लिए सुरक्षित पहुंच।"
+
+#: .\templates\portal\services.html:35 .\templates\portal\services.html:68
+msgid "Anonymous Access"
+msgstr "बिना लॉगिन के पहुंच"
+
+#: .\templates\portal\services.html:41
+msgid "Incident Reporting"
+msgstr "घटना की रिपोर्ट"
+
+#: .\templates\portal\services.html:44
+msgid ""
+"Report threats without revealing your identity. Supports screenshot and file "
+"uploads."
+msgstr "बिना अपनी पहचान बताए रिपोर्ट करें। फोटो और फाइल अपलोड की सुविधा।"
+
+#: .\templates\portal\services.html:47
+msgid "Report Now →"
+msgstr "अभी रिपोर्ट करें →"
+
+#: .\templates\portal\services.html:53
+msgid "AI Automated"
+msgstr "AI द्वारा संचालित"
+
+#: .\templates\portal\services.html:59
+msgid "AI Risk Analysis"
+msgstr "AI खतरा जांच"
+
+#: .\templates\portal\services.html:62
+msgid ""
+"NLP-driven classification engine that predicts threat levels (Low, Medium, "
+"High) instantly."
+msgstr "AI इंजन जो तुरंत बताता है कि खतरा कम है या ज्यादा।"
+
+#: .\templates\portal\services.html:74
+msgid "Intelligent Chatbot"
+msgstr "समझदार चैटबॉट"
+
+#: .\templates\portal\services.html:77
+msgid ""
+"24/7 conversational assistant for guided reporting and cyber safety Q&A."
+msgstr "24/7 सहायता के लिए उपलब्ध चैटबॉट।"
+
+#: .\templates\portal\services.html:80
+msgid "Start Chat →"
+msgstr "चैट शुरू करें →"
+
+#: .\templates\portal\services.html:86 .\templates\portal\services.html:101
+msgid "Admin Only"
+msgstr "केवल एडमिन के लिए"
+
+#: .\templates\portal\services.html:92
+msgid "Admin Dashboard"
+msgstr "एडमिन डैशबोर्ड"
+
+#: .\templates\portal\services.html:95
+msgid ""
+"Full incident lifecycle management, filtering, and resolution tracking for "
+"authorities."
+msgstr "अधिकारियों के लिए शिकायतों के प्रबंधन की सुविधा।"
+
+#: .\templates\portal\services.html:107
+msgid "Trend Analytics"
+msgstr "खतरों का विश्लेषण"
+
+#: .\templates\portal\services.html:110
+msgid ""
+"Visual intelligence of threat distribution, regional trends, and risk "
+"statistics."
+msgstr "खतरों के आंकड़ों और पैटर्न की जानकारी।"
+
+#: .\templates\portal\services.html:117
+msgid "Access Control Policy"
+msgstr "एक्सेस कंट्रोल पॉलिसी"
+
+#: .\templates\portal\services.html:120
+msgid ""
+"\n"
+"            Anonymous reporting is available for all. However, to track your "
+"case history and access the full Safety Suite, please\n"
+"             "
+msgstr "बिना नाम बताए रिपोर्ट कोई भी कर सकता है। पर अपनी पुरानी रिपोर्ट देखने के लिए कृपया..."
+
+#: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_complete.html:13
+msgid "Password Updated"
+msgstr "पासवर्ड बदल गया"
+
+#: .\templates\registration\password_reset_complete.html:17
+msgid "Your password has been changed successfully."
+msgstr "आपका पासवर्ड सफलतापूर्वक बदल दिया गया है।"
+
+#: .\templates\registration\password_reset_complete.html:23
+msgid "Login Now"
+msgstr "अभी लॉगिन करें"
+
+#: .\templates\registration\password_reset_confirm.html:8
+msgid "New <span class=\"text-blue-700\">Credentials</span>"
+msgstr "नए <span class=\"text-blue-700\">लॉगिन विवरण</span>"
+
+#: .\templates\registration\password_reset_confirm.html:20
+msgid "New Security Key"
+msgstr "नया पासवर्ड"
+
+#: .\templates\registration\password_reset_confirm.html:26
+msgid "Protocol Requirements"
+msgstr "जरूरी शर्तें"
+
+#: .\templates\registration\password_reset_confirm.html:31
+msgid "8+ Characters"
+msgstr "8 से ज्यादा अक्षर"
+
+#: .\templates\registration\password_reset_confirm.html:35
+msgid "Uppercase Letter"
+msgstr "बड़ा अक्षर (ABC)"
+
+#: .\templates\registration\password_reset_confirm.html:45
+msgid "Confirm Key"
+msgstr "पासवर्ड दोबारा डालें"
+
+#: .\templates\registration\password_reset_confirm.html:55
+msgid "Update Security Key"
+msgstr "पासवर्ड अपडेट करें"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid "Link <span class=\"text-blue-700\">Dispatched</span>"
+msgstr "लिंक <span class=\"text-blue-700\">भेज दिया गया</span>"
+
+#: .\templates\registration\password_reset_done.html:14
+msgid "Check your encrypted inbox for further instructions."
+msgstr "आगे की जानकारी के लिए अपना ईमेल चेक करें।"
+
+#: .\templates\registration\password_reset_done.html:19
+msgid "Return to Portal"
+msgstr "पोर्टल पर वापस जाएं"
+
+#: .\templates\registration\password_reset_email.html:7
+#, python-format
+msgid ""
+"\n"
+"        Hello %(username)s,\n"
+"        "
+msgstr "नमस्ते %(username)s,"
+
+#: .\templates\registration\password_reset_email.html:13
+#, python-format
+msgid ""
+"\n"
+"        We received a request to reset your password for your account on "
+"<strong>%(site_name)s</strong>.\n"
+"        "
+msgstr "हमें <strong>%(site_name)s</strong> पर आपके पासवर्ड को बदलने का अनुरोध मिला है।"
+
+#: .\templates\registration\password_reset_email.html:19
+msgid "To create a new password, click the button below:"
+msgstr "नया पासवर्ड बनाने के लिए नीचे दिए गए बटन पर क्लिक करें:"
+
+#: .\templates\registration\password_reset_email.html:38
+msgid ""
+"If you did not request this password reset, you can safely ignore this "
+"email. Your account will remain secure."
+msgstr "अगर आपने यह पासवर्ड बदलने के लिए नहीं कहा है, तो आप इस ईमेल को अनदेखा कर सकते हैं।"
+
+#: .\templates\registration\password_reset_email.html:42
+#, python-format
+msgid ""
+"\n"
+"        Regards,<br>\n"
+"        %(site_name)s Team\n"
+"        "
+msgstr "सादर,<br>%(site_name)s टीम"
+
+#: .\templates\registration\password_reset_form.html:9
+msgid "Reset <span class=\"text-blue-700\">Access</span>"
+msgstr "एक्सेस <span class=\"text-blue-700\">बदलें</span>"
+
+#: .\templates\registration\password_reset_form.html:13
+msgid "Emergency credential recovery"
+msgstr "पासवर्ड रिकवरी"
+
+#: .\templates\registration\password_reset_form.html:21
+msgid "Registered Email"
+msgstr "रजिस्टर ईमेल"
+
+#: .\templates\registration\password_reset_form.html:27
+msgid "admin@defence.gov"
+msgstr "admin@defence.gov"
+
+#: .\templates\registration\password_reset_form.html:35
+msgid "Send Recovery Link"
+msgstr "रिकवरी लिंक भेजें"

@@ -1,0 +1,787 @@
+# Telugu translation for Defence Cyber Safety Portal.
+# Copyright (C) 2026
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-11 01:07+0530\n"
+"PO-Revision-Date: 2026-01-11 10:30+0530\n"
+"Last-Translator: AI Assistant\n"
+"Language-Team: Telugu\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\core\settings.py:106
+msgid "English"
+msgstr "ఇంగ్లీష్"
+
+#: .\core\settings.py:107
+msgid "Hindi"
+msgstr "హిందీ"
+
+#: .\core\settings.py:108
+msgid "Telugu"
+msgstr "తెలుగు"
+
+#: .\templates\accounts\login.html:10
+msgid "SECURE <span class=\"text-blue-700\">LOGIN</span>"
+msgstr "సురక్షిత <span class=\"text-blue-700\">లాగిన్</span>"
+
+#: .\templates\accounts\login.html:13
+msgid "Defence Personnel & Public Access"
+msgstr "రక్షణ సిబ్బంది మరియు ప్రజల ప్రవేశం"
+
+#: .\templates\accounts\login.html:30
+msgid "Username"
+msgstr "యూజర్ నేమ్"
+
+#: .\templates\accounts\login.html:44
+msgid "Password"
+msgstr "పాస్‌వర్డ్"
+
+#: .\templates\accounts\login.html:57
+#: .\templates\registration\password_reset_email.html:33
+msgid "Reset Password"
+msgstr "పాస్‌వర్డ్ మార్చుకోండి"
+
+#: .\templates\accounts\login.html:60
+msgid "Create Account"
+msgstr "కొత్త ఖాతా తెరవండి"
+
+#: .\templates\accounts\login.html:69
+msgid "Authenticate"
+msgstr "గుర్తింపును ధృవీకరించు"
+
+#: .\templates\accounts\login.html:79 .\templates\landing.html:36
+msgid "Report Anonymously"
+msgstr "పేరు చెప్పకుండా ఫిర్యాదు చేయండి"
+
+#: .\templates\accounts\signup.html:10
+msgid "JOIN <span class=\"text-blue-700\">NETWORK</span>"
+msgstr "నెట్‌వర్క్‌లో <span class=\"text-blue-700\">చేరండి</span>"
+
+#: .\templates\accounts\signup.html:13
+msgid "Register for Cyber Intelligence"
+msgstr "సైబర్ సెక్యూరిటీ కోసం రిజిస్టర్ చేసుకోండి"
+
+#: .\templates\accounts\signup.html:30
+msgid "Username / Handle"
+msgstr "యూజర్ నేమ్ / హ్యాండిల్"
+
+#: .\templates\accounts\signup.html:42
+msgid "Official/Personal Email"
+msgstr "అధికారిక/వ్యక్తిగత ఈమెయిల్"
+
+#: .\templates\accounts\signup.html:56
+msgid "Security Password"
+msgstr "సెక్యూరిటీ పాస్‌వర్డ్"
+
+#: .\templates\accounts\signup.html:70
+msgid "Multi-factor authentication (OTP) will be triggered after registration."
+msgstr "రిజిస్ట్రేషన్ తర్వాత మీ ఈమెయిల్‌కు OTP వస్తుంది."
+
+#: .\templates\accounts\signup.html:79
+msgid "Initialize Account"
+msgstr "ఖాతాను ప్రారంభించండి"
+
+#: .\templates\accounts\signup.html:84
+msgid "Existing user?"
+msgstr "పాత యూజరా?"
+
+#: .\templates\accounts\signup.html:86
+msgid "Sign In"
+msgstr "సైన్ ఇన్"
+
+#: .\templates\accounts\verify_failed.html:10
+msgid "Verification <span class=\"text-red-600\">Failed</span>"
+msgstr "ధృవీకరణ <span class=\"text-red-600\">విఫలమైంది</span>"
+
+#: .\templates\accounts\verify_failed.html:14
+msgid "The code is invalid or has expired. Security protocols require a retry."
+msgstr "కోడ్ తప్పు లేదా సమయం ముగిసింది. దయచేసి మళ్ళీ ప్రయత్నించండి."
+
+#: .\templates\accounts\verify_failed.html:19
+msgid "Restart Registration"
+msgstr "రిజిస్ట్రేషన్ మళ్ళీ మొదలుపెట్టండి"
+
+#: .\templates\accounts\verify_otp.html:10
+msgid "Identity <span class=\"text-blue-700\">Verification</span>"
+msgstr "గుర్తింపు <span class=\"text-blue-700\">ధృవీకరణ</span>"
+
+#: .\templates\accounts\verify_otp.html:14
+msgid "Enter the 6-digit code sent to your email"
+msgstr "మీ ఈమెయిల్‌కు పంపిన 6 అంకెల కోడ్‌ను ఇక్కడ నమోదు చేయండి"
+
+#: .\templates\accounts\verify_otp.html:24
+msgid "000000"
+msgstr "000000"
+
+#: .\templates\accounts\verify_otp.html:32
+msgid "Verify & Activate"
+msgstr "తనిఖీ చేసి ప్రారంభించండి"
+
+#: .\templates\accounts\verify_success.html:12
+msgid "Access <span class=\"text-green-600\">Granted</span>"
+msgstr "ప్రవేశానికి <span class=\"text-green-600\">అనుమతి లభించింది</span>"
+
+#: .\templates\accounts\verify_success.html:16
+msgid ""
+"Your account has been successfully verified in the cyber defense network."
+msgstr "సైబర్ రక్షణ నెట్‌వర్క్‌లో మీ ఖాతా విజయవంతంగా చేర్చబడింది."
+
+#: .\templates\accounts\verify_success.html:21
+msgid "Go to Dashboard"
+msgstr "డ్యాష్‌బోర్డ్‌కు వెళ్ళండి"
+
+#: .\templates\base1.html:201
+msgid "Defence Portal"
+msgstr "రక్షణ పోర్టల్"
+
+#: .\templates\base1.html:211
+msgid "Home"
+msgstr "హోమ్"
+
+#: .\templates\base1.html:215
+msgid "Services"
+msgstr "సేవలు"
+
+#: .\templates\base1.html:219
+msgid "Resources"
+msgstr "వనరులు & సమాచారం"
+
+#: .\templates\base1.html:223
+msgid "Contact"
+msgstr "సంప్రదించండి"
+
+#: .\templates\base1.html:258
+#, python-format
+msgid "Hi, %(user.username)s"
+msgstr "నమస్తే, %(user.username)s"
+
+#: .\templates\base1.html:261
+msgid "LOGOUT"
+msgstr "లాగౌట్"
+
+#: .\templates\base1.html:266
+msgid "LOGIN"
+msgstr "లాగిన్"
+
+#: .\templates\base1.html:270
+msgid "JOIN NETWORK"
+msgstr "నెట్‌వర్క్‌లో చేరండి"
+
+#: .\templates\base1.html:284
+msgid "Defence Cyber Safety Portal | AI Enabled Infrastructure"
+msgstr "డిఫెన్స్ సైబర్ సేఫ్టీ పోర్టల్ | AI ఆధారిత వ్యవస్థ"
+
+#: .\templates\base1.html:307
+msgid ""
+"Hello! I am your AI Cyber Assistant. How can I help you stay safe today?"
+msgstr "నమస్తే! నేను మీ AI సైబర్ అసిస్టెంట్‌ని. ఈరోజు మీకు నేను ఎలా సహాయపడగలను?"
+
+#: .\templates\base1.html:312
+msgid "Ask about threats..."
+msgstr "ముప్పుల గురించి అడగండి..."
+
+#: .\templates\chatbot\chatbot.html:34
+msgid "Advanced AI Threat Intelligence"
+msgstr "అధునాతన AI ముప్పు గుర్తింపు"
+
+#: .\templates\chatbot\chatbot.html:37
+msgid "Multimodal Analysis Engaged"
+msgstr "లోతైన విశ్లేషణ జరుగుతోంది"
+
+#: .\templates\chatbot\chatbot.html:43
+msgid "Exit terminal"
+msgstr "బయటకు వెళ్ళండి"
+
+#: .\templates\chatbot\chatbot.html:49
+msgid ""
+"Deep analysis core active. Upload any evidence screenshot for an immediate "
+"safety assessment."
+msgstr "విశ్లేషణ వ్యవస్థ సిద్ధంగా ఉంది. తక్షణ తనిఖీ కోసం ఏదైనా స్క్రీన్‌షాట్ అప్‌లోడ్ చేయండి."
+
+#: .\templates\chatbot\chatbot.html:73
+msgid "Describe the threat or suspicious link..."
+msgstr "ముప్పు లేదా అనుమానాస్పద లింక్ గురించి చెప్పండి..."
+
+#: .\templates\chatbot\chatbot.html:116
+msgid "Analyzing Evidence..."
+msgstr "ఆధారాలను పరిశీలిస్తున్నాము..."
+
+#: .\templates\dashboards\admin_dashboard.html:3
+msgid "admin"
+msgstr "అడ్మిన్"
+
+#: .\templates\landing.html:13
+msgid "SIH25183: DEFENCE PROTOCOL"
+msgstr "SIH25183: డిఫెన్స్ ప్రోటోకాల్"
+
+#: .\templates\landing.html:17
+msgid "AI POWERED"
+msgstr "AI శక్తితో"
+
+#: .\templates\landing.html:19
+msgid "CYBER DEFENCE"
+msgstr "సైబర్ రక్షణ"
+
+#: .\templates\landing.html:24
+msgid ""
+"A high-security intelligence portal for defence personnel and civilians to "
+"mitigate digital threats through real-time AI analysis and automated safety "
+"countermeasures."
+msgstr "రక్షణ సిబ్బంది మరియు ప్రజల కోసం రూపొందించిన భద్రతా పోర్టల్. ఇది AI ద్వారా సైబర్ ముప్పులను అడ్డుకుంటుంది."
+
+#: .\templates\landing.html:30
+msgid "Access Portal"
+msgstr "పోర్టల్‌లోకి వెళ్ళండి"
+
+#: .\templates\landing.html:43
+msgid "AI CORE"
+msgstr "AI కోర్"
+
+#: .\templates\landing.html:44
+msgid "Risk Prediction"
+msgstr "ప్రమాద అంచనా"
+
+#: .\templates\landing.html:49
+msgid "LIVE BOT"
+msgstr "లైవ్ బాట్"
+
+#: .\templates\landing.html:50
+msgid "Real-Time Help"
+msgstr "వెంటనే సహాయం"
+
+#: .\templates\landing.html:55
+msgid "GLOBAL"
+msgstr "గ్లోబల్"
+
+#: .\templates\landing.html:56
+msgid "Multilingual"
+msgstr "బహుభాషా సౌకర్యం"
+
+#: .\templates\landing.html:82
+msgid "SYSTEM CAPABILITIES"
+msgstr "వ్యవస్థ సామర్థ్యాలు"
+
+#: .\templates\landing.html:91
+msgid "NLP Analysis"
+msgstr "NLP విశ్లేషణ"
+
+#: .\templates\landing.html:92
+msgid "Advanced intent detection and keyword mapping."
+msgstr "సమాచారం వెనుక ఉన్న ఉద్దేశాన్ని మరియు కీవర్డ్స్‌ను గుర్తిస్తుంది."
+
+#: .\templates\landing.html:101
+msgid "Automated Guidance"
+msgstr "ఆటోమేటెడ్ మార్గదర్శకత్వం"
+
+#: .\templates\landing.html:102
+msgid "Instant safety steps based on threat severity."
+msgstr "ప్రమాదం తీవ్రతను బట్టి వెంటనే భద్రతా సూచనలు ఇస్తుంది."
+
+#: .\templates\landing.html:111
+msgid "Conversational AI"
+msgstr "మాట్లాడే AI"
+
+#: .\templates\landing.html:112
+msgid "Guided incident reporting via intelligent chatbot."
+msgstr "చాట్‌బాట్ ద్వారా సులభంగా ఫిర్యాదు చేసే విధానం."
+
+#: .\templates\landing.html:121
+msgid "Secure Vault"
+msgstr "సురక్షిత వాల్ట్"
+
+#: .\templates\landing.html:122
+msgid "Encrypted storage for evidence and documentation."
+msgstr "ఆధారాలు మరియు పత్రాల కోసం సురక్షితమైన స్టోరేజ్."
+
+#: .\templates\portal\contact.html:9
+msgid "Support Command"
+msgstr "సహాయ కేంద్రం"
+
+#: .\templates\portal\contact.html:13
+msgid "Contact <span class=\"text-blue-700\">Experts</span>"
+msgstr "<span class=\"text-blue-700\">నిపుణులను</span> సంప్రదించండి"
+
+#: .\templates\portal\contact.html:17
+msgid ""
+"Access official government helplines or send a secure inquiry to our "
+"internal cyber defense team."
+msgstr "ప్రభుత్వ హెల్ప్‌లైన్లను సంప్రదించండి లేదా మా సైబర్ రక్షణ బృందానికి సందేశం పంపండి."
+
+#: .\templates\portal\contact.html:27
+msgid "National Cyber Helpline (24/7)"
+msgstr "నేషనల్ సైబర్ హెల్ప్‌లైన్ (24/7)"
+
+#: .\templates\portal\contact.html:39
+msgid "CERT-In Incident Reporting"
+msgstr "CERT-In ఇన్సిడెంట్ రిపోర్టింగ్"
+
+#: .\templates\portal\contact.html:51
+msgid "Official Defence Support"
+msgstr "అధికారిక రక్షణ సహాయం"
+
+#: .\templates\portal\contact.html:61
+msgid "Secure Communication"
+msgstr "సురక్షిత సంభాషణ"
+
+#: .\templates\portal\contact.html:69
+msgid "Full Name (Optional)"
+msgstr "పూర్తి పేరు (ఐచ్చికం)"
+
+#: .\templates\portal\contact.html:73
+msgid "Enter name for personalized support"
+msgstr "సహాయం కోసం మీ పేరును నమోదు చేయండి"
+
+#: .\templates\portal\contact.html:79
+msgid "Emergency Level"
+msgstr "అత్యవసర స్థాయి"
+
+#: .\templates\portal\contact.html:83
+msgid "General Inquiry"
+msgstr "సాధారణ విచారణ"
+
+#: .\templates\portal\contact.html:84
+msgid "Urgent Incident Support"
+msgstr "అత్యవసర ఫిర్యాదు సహాయం"
+
+#: .\templates\portal\contact.html:85
+msgid "Technical Issue"
+msgstr "సాంకేతిక సమస్య"
+
+#: .\templates\portal\contact.html:91
+msgid "Message"
+msgstr "సందేశం"
+
+#: .\templates\portal\contact.html:95
+msgid "Briefly describe your request..."
+msgstr "మీ సమస్య గురించి క్లుప్తంగా వివరించండి..."
+
+#: .\templates\portal\contact.html:102
+msgid "Submit Intelligence Report"
+msgstr "నివేదికను సమర్పించండి"
+
+#: .\templates\portal\recommendations.html:11
+msgid "CRITICAL THREAT DETECTED"
+msgstr "తీవ్రమైన ముప్పు కనుగొనబడింది"
+
+#: .\templates\portal\recommendations.html:16
+msgid "MODERATE RISK"
+msgstr "మధ్యస్థ ప్రమాదం"
+
+#: .\templates\portal\recommendations.html:21
+msgid "LOW RISK DETECTED"
+msgstr "తక్కువ ప్రమాదం కనుగొనబడింది"
+
+#: .\templates\portal\recommendations.html:27
+msgid "SAFETY <span class=\"text-blue-700\">PROTOCOLS</span>"
+msgstr "భద్రతా <span class=\"text-blue-700\">నియమాలు</span>"
+
+#: .\templates\portal\recommendations.html:31
+msgid "Incident ID:"
+msgstr "రిపోర్ట్ ఐడి:"
+
+#: .\templates\portal\recommendations.html:39
+msgid "MANDATORY DO'S"
+msgstr "తప్పనిసరిగా చేయవలసినవి"
+
+#: .\templates\portal\recommendations.html:53
+msgid "STRICT DON'Ts"
+msgstr "అస్సలు చేయకూడనివి"
+
+#: .\templates\portal\recommendations.html:67
+msgid "Return to Home"
+msgstr "హోమ్ పేజీకి వెళ్ళండి"
+
+#: .\templates\portal\recommendations.html:70
+msgid "AI Analysis Score:"
+msgstr "AI విశ్లేషణ స్కోర్:"
+
+#: .\templates\portal\report_form.html:41
+msgid "EVIDENCE SECURED"
+msgstr "ఆధారాలు సేకరించబడ్డాయి"
+
+#: .\templates\portal\report_form.html:46
+msgid "Encrypted & Attached to Report"
+msgstr "భద్రపరచబడింది మరియు రిపోర్ట్‌కు జత చేయబడింది"
+
+#: .\templates\portal\report_form.html:50
+msgid "Continue Reporting"
+msgstr "రిపోర్టింగ్ కొనసాగించండి"
+
+#: .\templates\portal\report_form.html:59
+msgid "Back to Home"
+msgstr "హోమ్ పేజీకి వెళ్ళండి"
+
+#: .\templates\portal\report_form.html:69
+msgid "REPORT <span class=\"text-blue-700\">INCIDENT</span>"
+msgstr "ముప్పు గురించి <span class=\"text-blue-700\">రిపోర్ట్ చేయండి</span>"
+
+#: .\templates\portal\report_form.html:72
+msgid "AI-Assisted Threat Submission"
+msgstr "AI సహాయంతో ఫిర్యాదు చేయండి"
+
+#: .\templates\portal\report_form.html:83
+msgid "Threat Category"
+msgstr "ముప్పు రకం"
+
+#: .\templates\portal\report_form.html:89
+msgid "Select Incident Type"
+msgstr "సంఘటన రకాన్ని ఎంచుకోండి"
+
+#: .\templates\portal\report_form.html:91
+msgid "Phishing / Fake Link"
+msgstr "ఫిషింగ్ / నకిలీ లింక్"
+
+#: .\templates\portal\report_form.html:92
+msgid "OTP / Financial Fraud"
+msgstr "OTP / ఆర్థిక మోసం"
+
+#: .\templates\portal\report_form.html:93
+msgid "Social Engineering"
+msgstr "సోషల్ ఇంజనీరింగ్"
+
+#: .\templates\portal\report_form.html:94
+msgid "Identity Theft"
+msgstr "గుర్తింపు దొంగతనం"
+
+#: .\templates\portal\report_form.html:95
+msgid "Malware / Virus"
+msgstr "మాల్‌వేర్ / వైరస్"
+
+#: .\templates\portal\report_form.html:105
+msgid "Evidence (Screenshot/File)"
+msgstr "ఆధారం (స్క్రీన్‌షాట్/ఫైల్)"
+
+#: .\templates\portal\report_form.html:115
+msgid "Attach Evidence"
+msgstr "ఆధారాలను జత చేయండి"
+
+#: .\templates\portal\report_form.html:124
+msgid "Incident Description"
+msgstr "సంఘటన వివరణ"
+
+#: .\templates\portal\report_form.html:128
+msgid "Please provide details about the suspicious activity..."
+msgstr "అనుమానాస్పద చర్య గురించి వివరాలు తెలపండి..."
+
+#: .\templates\portal\report_form.html:136
+msgid "Submit as Anonymous"
+msgstr "పేరు లేకుండా పంపండి"
+
+#: .\templates\portal\report_form.html:139
+msgid "Your personal details will not be linked to this report."
+msgstr "మీ వ్యక్తిగత వివరాలు ఈ రిపోర్ట్‌తో జత చేయబడవు."
+
+#: .\templates\portal\report_form.html:147
+msgid "Analyze & Submit Report"
+msgstr "విశ్లేషించి రిపోర్ట్ పంపండి"
+
+#: .\templates\portal\resources.html:10
+msgid "Public Resource Hub"
+msgstr "ప్రజా సమాచార కేంద్రం"
+
+#: .\templates\portal\resources.html:14
+msgid "Awareness &<br><span class=\"text-blue-300\">Cyber Education</span>"
+msgstr "అవగాహన &<br><span class=\"text-blue-300\">సైబర్ విద్య</span>"
+
+#: .\templates\portal\resources.html:18
+msgid ""
+"Equipping defence personnel and citizens with the knowledge to neutralize "
+"digital threats."
+msgstr "డిజిటల్ ముప్పులను ఎదుర్కోవడానికి రక్షణ సిబ్బందికి మరియు ప్రజలకు అవగాహన కల్పించడం."
+
+#: .\templates\portal\resources.html:29
+msgid "Security Guidelines"
+msgstr "భద్రతా మార్గదర్శకాలు"
+
+#: .\templates\portal\resources.html:38
+msgid "Level: Critical"
+msgstr "స్థాయి: అత్యవసరం"
+
+#: .\templates\portal\resources.html:42
+msgid "Phishing & Smishing Prevention"
+msgstr "ఫిషింగ్ నివారణ"
+
+#: .\templates\portal\resources.html:45
+msgid ""
+"Learn to identify malicious links, spoofed email headers, and social "
+"engineering tactics designed to steal sensitive credentials."
+msgstr "నకిలీ లింకులు మరియు మోసపూరిత ఈమెయిల్‌లను గుర్తించడం ఎలాగో తెలుసుకోండి."
+
+#: .\templates\portal\resources.html:54
+msgid "Level: Standard"
+msgstr "స్థాయి: సాధారణం"
+
+#: .\templates\portal\resources.html:58
+msgid "Advanced Device Security"
+msgstr "పరికరాల భద్రత"
+
+#: .\templates\portal\resources.html:61
+msgid ""
+"Guidelines for securing personal and official devices, using encrypted "
+"storage, and managing MFA protocols."
+msgstr "మీ ఫోన్ మరియు కంప్యూటర్లను సురక్షితంగా ఉంచుకోవడానికి చిట్కాలు."
+
+#: .\templates\portal\resources.html:69
+msgid "Spotted a Threat?"
+msgstr "ముప్పును గమనించారా?"
+
+#: .\templates\portal\resources.html:72
+msgid ""
+"Contribute to the safety ecosystem by reporting incidents anonymously. Your "
+"intelligence helps protect the entire community."
+msgstr "పేరు చెప్పకుండా ఫిర్యాదు చేయడం ద్వారా అందరి భద్రతకు సహకరించండి."
+
+#: .\templates\portal\resources.html:77
+msgid "Quick Report"
+msgstr "తక్షణ రిపోర్ట్"
+
+#: .\templates\portal\resources.html:94
+msgid "AI Analysis Bot"
+msgstr "AI విశ్లేషణ బాట్"
+
+#: .\templates\portal\resources.html:97
+msgid ""
+"Unsure about a link or message? Chat with our AI to analyze threats in real-"
+"time and get instant safety scores."
+msgstr "లింక్ గురించి అనుమానంగా ఉందా? మా AI తో చాట్ చేసి అది సురక్షితమో కాదో తెలుసుకోండి."
+
+#: .\templates\portal\resources.html:101
+msgid "Start Full AI Analysis"
+msgstr "పూర్తి AI విశ్లేషణ ప్రారంభించండి"
+
+#: .\templates\portal\resources.html:116
+msgid "Threat Alerts"
+msgstr "ముప్పు హెచ్చరికలు"
+
+#: .\templates\portal\resources.html:123
+msgid "New Phishing Trend: Fake Banking Apps"
+msgstr "కొత్త ముప్పు: నకిలీ బ్యాంకింగ్ యాప్స్"
+
+#: .\templates\portal\resources.html:129
+msgid "Ransomware Alert: Remote Desktop Vulnerability"
+msgstr "రాన్సమ్‌వేర్ అలర్ట్: రిమోట్ డెస్క్‌టాప్ ప్రమాదం"
+
+#: .\templates\portal\resources.html:136
+msgid "View All Alerts"
+msgstr "అన్ని హెచ్చరికలను చూడండి"
+
+#: .\templates\portal\services.html:8
+msgid "Defence <span class=\"text-blue-700\">Capabilities</span>"
+msgstr "రక్షణ <span class=\"text-blue-700\">సామర్థ్యాలు</span>"
+
+#: .\templates\portal\services.html:12
+msgid "SIH25183: AI-Enabled Cyber Safety Ecosystem"
+msgstr "SIH25183: AI ఆధారిత సైబర్ భద్రత"
+
+#: .\templates\portal\services.html:20
+msgid "Login Required"
+msgstr "లాగిన్ అవసరం"
+
+#: .\templates\portal\services.html:26
+msgid "Identity & Access"
+msgstr "గుర్తింపు & ప్రవేశం"
+
+#: .\templates\portal\services.html:29
+msgid ""
+"Secure role-based access for registered personnel with multi-factor "
+"authentication support."
+msgstr "OTP ద్వారా రిజిస్టర్డ్ యూజర్లకు సురక్షిత ప్రవేశం."
+
+#: .\templates\portal\services.html:35 .\templates\portal\services.html:68
+msgid "Anonymous Access"
+msgstr "గుర్తు తెలియని ప్రవేశం"
+
+#: .\templates\portal\services.html:41
+msgid "Incident Reporting"
+msgstr "సంఘటన రిపోర్టింగ్"
+
+#: .\templates\portal\services.html:44
+msgid ""
+"Report threats without revealing your identity. Supports screenshot and file "
+"uploads."
+msgstr "మీ గుర్తింపు బయటపెట్టకుండా ఫిర్యాదు చేయండి. స్క్రీన్‌షాట్లను జత చేయవచ్చు."
+
+#: .\templates\portal\services.html:47
+msgid "Report Now →"
+msgstr "వెంటనే రిపోర్ట్ చేయండి →"
+
+#: .\templates\portal\services.html:53
+msgid "AI Automated"
+msgstr "AI ఆటోమేటెడ్"
+
+#: .\templates\portal\services.html:59
+msgid "AI Risk Analysis"
+msgstr "AI ప్రమాద విశ్లేషణ"
+
+#: .\templates\portal\services.html:62
+msgid ""
+"NLP-driven classification engine that predicts threat levels (Low, Medium, "
+"High) instantly."
+msgstr "ప్రమాదం ఎంత తీవ్రంగా ఉందో వెంటనే అంచనా వేస్తుంది."
+
+#: .\templates\portal\services.html:74
+msgid "Intelligent Chatbot"
+msgstr "ఇంటెలిజెంట్ చాట్‌బాట్"
+
+#: .\templates\portal\services.html:77
+msgid ""
+"24/7 conversational assistant for guided reporting and cyber safety Q&A."
+msgstr "సాయం కోసం 24/7 అందుబాటులో ఉండే చాట్‌బాట్."
+
+#: .\templates\portal\services.html:80
+msgid "Start Chat →"
+msgstr "చాట్ ప్రారంభించండి →"
+
+#: .\templates\portal\services.html:86 .\templates\portal\services.html:101
+msgid "Admin Only"
+msgstr "అడ్మిన్ కోసం మాత్రమే"
+
+#: .\templates\portal\services.html:92
+msgid "Admin Dashboard"
+msgstr "అడ్మిన్ డ్యాష్‌బోర్డ్"
+
+#: .\templates\portal\services.html:95
+msgid ""
+"Full incident lifecycle management, filtering, and resolution tracking for "
+"authorities."
+msgstr "అధికారుల కోసం ఫిర్యాదుల నిర్వహణ సౌకర్యం."
+
+#: .\templates\portal\services.html:107
+msgid "Trend Analytics"
+msgstr "ట్రెండ్ అనలిటిక్స్"
+
+#: .\templates\portal\services.html:110
+msgid ""
+"Visual intelligence of threat distribution, regional trends, and risk "
+"statistics."
+msgstr "ప్రమాదాల గణాంకాలు మరియు విశ్లేషణ."
+
+#: .\templates\portal\services.html:117
+msgid "Access Control Policy"
+msgstr "ప్రవేశ నియంత్రణ విధానం"
+
+#: .\templates\portal\services.html:120
+msgid ""
+"\n"
+"            Anonymous reporting is available for all. However, to track your "
+"case history and access the full Safety Suite, please\n"
+"            "
+msgstr ""
+"ఎవరైనా పేరు లేకుండా ఫిర్యాదు చేయవచ్చు. అయితే మీ ఫిర్యాదు స్థితిని తెలుసుకోవడానికి దయచేసి... "
+
+#: .\templates\registration\password_reset_complete.html:5
+#: .\templates\registration\password_reset_complete.html:13
+msgid "Password Updated"
+msgstr "పాస్‌వర్డ్ మార్చబడింది"
+
+#: .\templates\registration\password_reset_complete.html:17
+msgid "Your password has been changed successfully."
+msgstr "మీ పాస్‌వర్డ్ విజయవంతంగా మార్చబడింది."
+
+#: .\templates\registration\password_reset_complete.html:23
+msgid "Login Now"
+msgstr "ఇప్పుడు లాగిన్ అవ్వండి"
+
+#: .\templates\registration\password_reset_confirm.html:8
+msgid "New <span class=\"text-blue-700\">Credentials</span>"
+msgstr "కొత్త <span class=\"text-blue-700\">వివరాలు</span>"
+
+#: .\templates\registration\password_reset_confirm.html:20
+msgid "New Security Key"
+msgstr "కొత్త పాస్‌వర్డ్"
+
+#: .\templates\registration\password_reset_confirm.html:26
+msgid "Protocol Requirements"
+msgstr "నియమ నిబంధనలు"
+
+#: .\templates\registration\password_reset_confirm.html:31
+msgid "8+ Characters"
+msgstr "8 కంటే ఎక్కువ అక్షరాలు"
+
+#: .\templates\registration\password_reset_confirm.html:35
+msgid "Uppercase Letter"
+msgstr "పెద్ద అక్షరం (ABC)"
+
+#: .\templates\registration\password_reset_confirm.html:45
+msgid "Confirm Key"
+msgstr "పాస్‌వర్డ్ ధృవీకరించండి"
+
+#: .\templates\registration\password_reset_confirm.html:55
+msgid "Update Security Key"
+msgstr "పాస్‌వర్డ్ అప్‌డేట్ చేయండి"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid "Link <span class=\"text-blue-700\">Dispatched</span>"
+msgstr "లింక్ <span class=\"text-blue-700\">పంపబడింది</span>"
+
+#: .\templates\registration\password_reset_done.html:14
+msgid "Check your encrypted inbox for further instructions."
+msgstr "తదుపరి సమాచారం కోసం మీ ఈమెయిల్‌ను చూడండి."
+
+#: .\templates\registration\password_reset_done.html:19
+msgid "Return to Portal"
+msgstr "పోర్టల్‌కు తిరిగి వెళ్ళండి"
+
+#: .\templates\registration\password_reset_email.html:7
+#, python-format
+msgid ""
+"\n"
+"        Hello %(username)s,\n"
+"        "
+msgstr "నమస్తే %(username)s,"
+
+#: .\templates\registration\password_reset_email.html:13
+#, python-format
+msgid ""
+"\n"
+"        We received a request to reset your password for your account on "
+"<strong>%(site_name)s</strong>.\n"
+"        "
+msgstr "<strong>%(site_name)s</strong> లో మీ ఖాతా పాస్‌వర్డ్ మార్చమని కోరారు."
+
+#: .\templates\registration\password_reset_email.html:19
+msgid "To create a new password, click the button below:"
+msgstr "కొత్త పాస్‌వర్డ్ సృష్టించడానికి ఈ బటన్ క్లిక్ చేయండి:"
+
+#: .\templates\registration\password_reset_email.html:38
+msgid ""
+"If you did not request this password reset, you can safely ignore this "
+"email. Your account will remain secure."
+msgstr "ఒకవేళ మీరు ఈ కోరికను పంపకుంటే, ఈ ఈమెయిల్‌ను పట్టించుకోకండి."
+
+#: .\templates\registration\password_reset_email.html:42
+#, python-format
+msgid ""
+"\n"
+"        Regards,<br>\n"
+"        %(site_name)s Team\n"
+"        "
+msgstr "ఇట్లు,<br>%(site_name)s టీమ్"
+
+#: .\templates\registration\password_reset_form.html:9
+msgid "Reset <span class=\"text-blue-700\">Access</span>"
+msgstr "యాక్సెస్ <span class=\"text-blue-700\">రీసెట్</span>"
+
+#: .\templates\registration\password_reset_form.html:13
+msgid "Emergency credential recovery"
+msgstr "ఎమర్జెన్సీ పాస్‌వర్డ్ రికవరీ"
+
+#: .\templates\registration\password_reset_form.html:21
+msgid "Registered Email"
+msgstr "రిజిస్టర్డ్ ఈమెయిల్"
+
+#: .\templates\registration\password_reset_form.html:27
+msgid "admin@defence.gov"
+msgstr "admin@defence.gov"
+
+#: .\templates\registration\password_reset_form.html:35
+msgid "Send Recovery Link"
+msgstr "రికవరీ లింక్ పంపండి"

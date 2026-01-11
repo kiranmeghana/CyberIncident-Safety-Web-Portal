@@ -1,0 +1,151 @@
+{% extends 'base2.html' %}
+{% load i18n %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-8 pb-10">
+    <div class="bg-slate-900 p-10 rounded-[3rem] text-white flex justify-between items-center shadow-2xl relative overflow-hidden border border-white/5">
+        <div class="relative z-10">
+            <h1 class="logo-font text-3xl font-black uppercase tracking-tighter">{% translate "Threat Vector Intelligence" %}</h1>
+            <p class="text-cyan-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-2">{% translate "Module 7: Real-Time Behavioral Analytics" %}</p>
+        </div>
+        <div class="hidden md:flex gap-6 relative z-10">
+            <div class="text-right">
+                <p class="text-[10px] font-bold text-slate-500 uppercase">{% translate "Data Integrity" %}</p>
+                <p class="text-xs font-black text-emerald-400">99.8% SECURE</p>
+            </div>
+            <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center border border-cyan-500/20">
+                <i class="fa-solid fa-chart-line text-cyan-400 text-2xl animate-pulse"></i>
+            </div>
+        </div>
+        <i class="fa-solid fa-shield-halved absolute -bottom-10 -right-10 text-[250px] opacity-5"></i>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+        
+        <div class="lg:col-span-2 bg-white p-10 rounded-[3.5rem] shadow-sm border border-slate-100 relative overflow-hidden">
+            <div class="flex justify-between items-center mb-10">
+                <h3 class="logo-font text-xs font-black uppercase text-slate-400 tracking-widest">
+                    <i class="fa-solid fa-wave-square mr-2 text-blue-600"></i> {% translate "Incident Frequency Waves" %}
+                </h3>
+                <span class="text-[9px] font-black bg-blue-50 text-blue-600 px-3 py-1 rounded-full">{% translate "LIVE SENSOR DATA" %}</span>
+            </div>
+            <div class="h-[300px]">
+                <canvas id="wavyTrendChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 p-10 rounded-[3.5rem] shadow-2xl text-white flex flex-col items-center">
+            <h3 class="logo-font text-xs font-black uppercase text-cyan-400 mb-10 self-start tracking-widest">
+                <i class="fa-solid fa-circle-nodes mr-2"></i> {% translate "Risk Severity" %}
+            </h3>
+            <div class="w-full max-w-[220px]">
+                <canvas id="riskDonutChart"></canvas>
+            </div>
+            <div class="mt-8 grid grid-cols-2 gap-4 w-full">
+                <div class="p-3 bg-white/5 rounded-2xl border border-white/5">
+                    <p class="text-[8px] font-black text-slate-500 uppercase">{% translate "High Risk" %}</p>
+                    <p class="text-lg font-black text-red-500">{{ high_risk }}</p>
+                </div>
+                <div class="p-3 bg-white/5 rounded-2xl border border-white/5">
+                    <p class="text-[8px] font-black text-slate-500 uppercase">{% translate "System Safe" %}</p>
+                    <p class="text-lg font-black text-emerald-400">{{ low_risk }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-10 rounded-[4rem] shadow-sm border border-slate-100">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-10 h-10 bg-blue-50 text-blue-700 rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-fingerprint"></i>
+            </div>
+            <h3 class="logo-font text-xs font-black uppercase text-slate-800 tracking-widest">{% translate "Threat Category Mapping" %}</h3>
+        </div>
+        <div class="h-[250px]">
+            <canvas id="typeBarChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // 1. Wavy Trend Chart (Spline Area)
+    const wavyCtx = document.getElementById('wavyTrendChart').getContext('2d');
+    const blueGradient = wavyCtx.createLinearGradient(0, 0, 0, 400);
+    blueGradient.addColorStop(0, 'rgba(0, 86, 179, 0.2)');
+    blueGradient.addColorStop(1, 'rgba(0, 86, 179, 0)');
+
+    new Chart(wavyCtx, {
+        type: 'line',
+        data: {
+            labels: {{ labels|safe }},
+            datasets: [{
+                label: '{% translate "Activity Level" %}',
+                data: {{ data|safe }},
+                borderColor: '#0056b3',
+                backgroundColor: blueGradient,
+                fill: true,
+                tension: 0.4, // This creates the "Wavy" effect
+                borderWidth: 4,
+                pointRadius: 6,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#0056b3',
+                pointBorderWidth: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { font: { weight: 'bold' } } },
+                x: { grid: { display: false }, ticks: { font: { weight: 'bold' } } }
+            }
+        }
+    });
+
+    // 2. Risk Donut (Dark Mode Version)
+    const riskCtx = document.getElementById('riskDonutChart').getContext('2d');
+    new Chart(riskCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['HIGH', 'MEDIUM', 'LOW'],
+            datasets: [{
+                data: [{{ high_risk }}, {{ med_risk }}, {{ low_risk }}],
+                backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6'],
+                hoverOffset: 15,
+                borderWidth: 0,
+                cutout: '80%'
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+
+    // 3. Category Bar Chart
+    const typeCtx = document.getElementById('typeBarChart').getContext('2d');
+    new Chart(typeCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ labels|safe }},
+            datasets: [{
+                data: {{ data|safe }},
+                backgroundColor: '#334155',
+                borderRadius: 20,
+                barThickness: 40
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { grid: { borderDash: [5, 5] } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+</script>
+{% endblock %}

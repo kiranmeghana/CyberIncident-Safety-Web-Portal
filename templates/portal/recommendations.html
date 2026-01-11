@@ -1,59 +1,94 @@
 {% extends 'base1.html' %}
+{% load i18n %}
 {% block content %}
+
 <div class="max-w-5xl mx-auto py-16 px-4">
-    <div class="text-center mb-12">
+
+    <div class="max-w-6xl mx-auto py-10 px-4">
+    <div class="bg-slate-900 rounded-[3rem] p-12 text-white mb-12 shadow-2xl relative overflow-hidden border border-white/10">
+        <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 bg-red-600 rounded-full animate-pulse flex items-center justify-center">
+                    <i class="fa-solid fa-radiation text-xl"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-[0.4em] text-red-400">{% translate "Immediate Countermeasures Required" %}</span>
+            </div>
+            <h1 class="logo-font text-4xl font-black uppercase">{% translate "Technical Safety Protocols" %}</h1>
+            <p class="text-slate-400 text-xs mt-2 uppercase font-bold tracking-widest">
+                {% translate "Log ID:" %} #DEF-{{ incident.id }} | {% translate "Analysis Date:" %} {{ incident.created_at|date:"M d, Y" }}
+            </p>
+        </div>
+        <i class="fa-solid fa-user-shield absolute -bottom-10 -right-10 text-[300px] opacity-5"></i>
+    </div>
+
+        <div class="text-center mb-12">
         <div class="inline-block mb-4">
             {% if incident.risk_level == 'HIGH' %}
                 <span class="bg-red-100 text-red-700 border border-red-200 px-6 py-2 rounded-full font-black logo-font animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.4)]">
-                    <i class="fa-solid fa-triangle-exclamation mr-2"></i> CRITICAL THREAT DETECTED
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                    {% translate "CRITICAL THREAT DETECTED" %}
                 </span>
             {% elif incident.risk_level == 'MEDIUM' %}
                 <span class="bg-amber-100 text-amber-700 border border-amber-200 px-6 py-2 rounded-full font-black logo-font">
-                    <i class="fa-solid fa-circle-exclamation mr-2"></i> MODERATE RISK
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i>
+                    {% translate "MODERATE RISK" %}
                 </span>
             {% else %}
                 <span class="bg-blue-100 text-blue-700 border border-blue-200 px-6 py-2 rounded-full font-black logo-font">
-                    <i class="fa-solid fa-shield-check mr-2"></i> LOW RISK DETECTED
+                    <i class="fa-solid fa-shield-check mr-2"></i>
+                    {% translate "LOW RISK DETECTED" %}
                 </span>
             {% endif %}
         </div>
-        <h1 class="logo-font text-4xl font-black text-slate-900">SAFETY <span class="text-blue-700">PROTOCOLS</span></h1>
-        <p class="text-slate-500 font-bold uppercase tracking-widest mt-2 text-xs">Incident ID: #DEF-{{ incident.id }}</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-8 rounded-[2rem] shadow-xl border-l-8 border-green-500 glow-border">
-            <h3 class="logo-font text-xl font-black text-green-700 mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-circle-check"></i> MANDATORY DO'S
-            </h3>
-            <ul class="space-y-4">
-                {% for item in dos %}
-                <li class="flex items-start gap-3 font-bold text-slate-700 text-sm">
-                    <i class="fa-solid fa-check mt-1 text-green-500"></i> {{ item }}
-                </li>
-                {% endfor %}
-            </ul>
+    <div class="grid lg:grid-cols-2 gap-10">
+    <div class="space-y-6">
+        <div class="flex items-center gap-3 ml-4 mb-2">
+            <i class="fa-solid fa-shield-check text-green-500 text-xl"></i>
+            <h3 class="logo-font text-lg font-black text-slate-800 uppercase tracking-tighter">{% translate "Mandatory Defense Steps" %}</h3>
+        </div>
+        
+        {% for item in dos %}
+        <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:border-green-300 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-start gap-5">
+                <span class="w-8 h-8 bg-green-50 text-green-600 rounded-xl flex items-center justify-center text-xs font-black shrink-0 shadow-sm border border-green-100">
+                    {{ forloop.counter }}
+                </span>
+                <p class="text-[13px] font-bold text-slate-700 leading-relaxed pt-1">
+                    {{ item|linebreaksbr }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="space-y-6">
+        <div class="flex items-center gap-3 ml-4 mb-2">
+            <i class="fa-solid fa-ban text-red-500 text-xl"></i>
+            <h3 class="logo-font text-lg font-black text-slate-800 uppercase tracking-tighter">{% translate "Strict Prohibitions" %}</h3>
         </div>
 
-        <div class="bg-white p-8 rounded-[2rem] shadow-xl border-l-8 border-red-500 glow-border">
-            <h3 class="logo-font text-xl font-black text-red-700 mb-6 flex items-center gap-3">
-                <i class="fa-solid fa-circle-xmark"></i> STRICT DON'Ts
-            </h3>
-            <ul class="space-y-4">
-                {% for item in donts %}
-                <li class="flex items-start gap-3 font-bold text-slate-700 text-sm">
-                    <i class="fa-solid fa-xmark mt-1 text-red-500"></i> {{ item }}
-                </li>
-                {% endfor %}
-            </ul>
+        {% for item in donts %}
+        <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:border-red-300 hover:shadow-lg transition-all duration-300">
+            <div class="flex items-start gap-5">
+                <span class="w-8 h-8 bg-red-50 text-red-600 rounded-xl flex items-center justify-center text-xs font-black shrink-0 shadow-sm border border-red-100">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+                <p class="text-[13px] font-bold text-slate-700 leading-relaxed pt-1">
+                    {{ item|linebreaksbr }}
+                </p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-
-    <div class="mt-12 flex flex-col items-center gap-4">
-        <a href="/" class="btn-glow text-white px-12 py-4 rounded-2xl font-black uppercase tracking-widest text-sm">
-            Return to Home
-        </a>
-        <p class="text-xs text-slate-400 font-bold uppercase tracking-tighter">AI Analysis Score: {{ incident.risk_score }}/20</p>
-    </div>
+</div>
+            </div>
+                    <div class="mt-10 p-8 bg-blue-50/50 border-2 border-dotted border-blue-200 rounded-[2.5rem]">
+                <h4 class="text-xs font-black text-blue-900 uppercase mb-2">{% translate "Intelligence Advisory" %}</h4>
+                <p class="text-xs text-blue-700 font-medium leading-relaxed">
+                    {% translate "These steps are auto-generated by the AI Risk Analysis Module based on the identified threat markers. Failure to follow these SOPs may result in further credential compromise or network lateral movement." %}
+                </p>
+            </div>
 </div>
 {% endblock %}

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% translate "AI Cyber Defence Portal" %}</title>
+    <title>AI Cyber Defence Portal</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,7 +51,6 @@
             border-bottom: 1px solid rgba(0, 86, 179, 0.1);
         }
 
-        /* Navigation Underline Animation */
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
@@ -77,121 +76,6 @@
             color: var(--defence-blue) !important;
         }
 
-        .dropdown-animate {
-            animation: fadeInScale 0.2s ease-out;
-            transform-origin: top right;
-        }
-
-
-
-        .success-checkmark {
-            width: 80px;
-            height: 115px;
-            margin: 0 auto;
-        }
-
-        .check-icon {
-            width: 80px;
-            height: 80px;
-            position: relative;
-            border-radius: 50%;
-            box-sizing: content-box;
-            border: 4px solid #4CAF50;
-        }
-
-        .check-icon::before {
-            top: 3px;
-            left: -2px;
-            width: 30px;
-            transform-origin: 100% 50%;
-            border-radius: 100px 0 0 100px;
-        }
-
-        .icon-line {
-            height: 5px;
-            background-color: #4CAF50;
-            display: block;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 10;
-        }
-
-        .line-tip {
-            top: 46px;
-            left: 14px;
-            width: 25px;
-            transform: rotate(45deg);
-            animation: icon-line-tip 0.75s;
-        }
-
-        .line-long {
-            top: 38px;
-            right: 8px;
-            width: 47px;
-            transform: rotate(-45deg);
-            animation: icon-line-long 0.75s;
-        }
-
-        @keyframes icon-line-tip {
-            0% {
-                width: 0;
-                left: 1px;
-                top: 19px;
-            }
-
-            54% {
-                width: 0;
-                left: 1px;
-                top: 19px;
-            }
-
-            70% {
-                width: 50px;
-                left: -8px;
-                top: 37px;
-            }
-
-            84% {
-                width: 17px;
-                left: 21px;
-                top: 48px;
-            }
-
-            100% {
-                width: 25px;
-                left: 14px;
-                top: 46px;
-            }
-        }
-
-        @keyframes icon-line-long {
-            0% {
-                width: 0;
-                right: 46px;
-                top: 54px;
-            }
-
-            65% {
-                width: 0;
-                right: 46px;
-                top: 54px;
-            }
-
-            84% {
-                width: 55px;
-                right: 0px;
-                top: 35px;
-            }
-
-            100% {
-                width: 47px;
-                right: 8px;
-                top: 38px;
-            }
-        }
-
-
-
         @keyframes fadeInScale {
             from {
                 opacity: 0;
@@ -202,6 +86,11 @@
                 opacity: 1;
                 transform: scale(1) translateY(0);
             }
+        }
+
+        .dropdown-animate {
+            animation: fadeInScale 0.2s ease-out;
+            transform-origin: top right;
         }
 
         @keyframes float {
@@ -228,6 +117,66 @@
             background: #cbd5e1;
             border-radius: 10px;
         }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Typing Indicator Styles */
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* Structured AI Output Styling for the chat bubble */
+        .ai-bubble-content h3 {
+            color: #22d3ee;
+            font-size: 13px;
+            font-weight: 900;
+            margin: 8px 0 4px 0;
+            text-transform: uppercase;
+        }
+
+        .ai-bubble-content strong {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .ai-bubble-content br {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 
@@ -235,55 +184,63 @@
     <div class="h-1 w-full bg-gradient-to-r from-blue-700 via-cyan-400 to-blue-700"></div>
 
     <nav class="glass-nav sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-24 items-center">
 
+            <!-- Logo -->
             <div class="flex items-center gap-3">
-                <div
-                    class="relative w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-blue-700 shadow-lg animate-float">
-                    <i class="fa-solid fa-shield-halved text-2xl text-blue-700"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="logo-font font-bold text-xl tracking-tighter text-slate-800 leading-none">AI <span
-                            class="text-blue-700">CYBER</span></span>
-                    <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">{% translate "Defence
-                        Portal" %}</span>
-                </div>
+                <a href="{% url 'landing' %}" class="flex items-center gap-3">
+                    <div
+                        class="relative w-12 h-12 bg-white rounded-lg flex items-center justify-center border-2 border-blue-700 shadow-lg animate-float">
+                        <i class="fa-solid fa-shield-halved text-2xl text-blue-700"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="logo-font font-bold text-xl tracking-tighter text-slate-800 leading-none">
+                            AI <span class="text-blue-700">CYBER</span>
+                        </span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
+                            {% translate "Defence Portal" %}
+                        </span>
+                    </div>
+                </a>
             </div>
 
+            <!-- Navigation -->
             <div class="hidden lg:flex items-center gap-8">
                 <a href="{% url 'landing' %}"
-                    class="nav-link {% if request.resolver_match.url_name == 'landing' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
-                    translate "Home" %}</a>
+                    class="nav-link {% if request.resolver_match.url_name == 'landing' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">
+                    {% translate "Home" %}
+                </a>
                 <a href="{% url 'services' %}"
-                    class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
-                    translate "Services" %}</a>
+                    class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">
+                    {% translate "Services" %}
+                </a>
                 <a href="{% url 'resources' %}"
-                    class="nav-link {% if request.resolver_match.url_name == 'resources' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
-                    translate "Resources" %}</a>
+                    class="nav-link {% if request.resolver_match.url_name == 'resources' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">
+                    {% translate "Resources" %}
+                </a>
                 <a href="{% url 'contact' %}"
-                    class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">{%
-                    translate "Contact" %}</a>
+                    class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %} text-xs font-black uppercase tracking-widest text-slate-600 hover:text-blue-700">
+                    {% translate "Contact" %}
+                </a>
             </div>
 
+            <!-- Language + Auth -->
             <div class="flex items-center gap-6">
-                <div class="relative inline-block text-left" id="custom-lang-selector">
-                    <button type="button" onclick="toggleDropdown()"
-                        class="flex items-center gap-2 bg-slate-100 hover:bg-white px-4 py-2 rounded-full border border-slate-200 transition-all duration-300 group">
-                        <i class="fa-solid fa-language text-blue-700 text-[20px]"></i>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-slate-700">
-                            {% get_current_language as CURRENT_LANG %}
-                            {% if CURRENT_LANG == 'hi' %}HINDI{% elif CURRENT_LANG == 'te' %}TELUGU{% else %}ENGLISH{%
-                            endif %}
-                        </span>
-                        <i
-                            class="fa-solid fa-chevron-down text-[8px] text-slate-400 group-hover:text-blue-700 transition-colors"></i>
-                    </button>
 
+                <!-- Language Selector (already correct) -->
+                <div class="relative inline-block text-left" id="custom-lang-selector"> <button type="button"
+                        onclick="toggleDropdown()"
+                        class="flex items-center gap-2 bg-slate-100 hover:bg-white px-4 py-2 rounded-full border border-slate-200 transition-all duration-300 group">
+                        <i class="fa-solid fa-language text-blue-700 text-[20px]"></i> <span
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-700"> 
+                            {% get_current_language as CURRENT_LANG %} {% if CURRENT_LANG == 'hi' %}HINDI{% elif CURRENT_LANG == 'te' %}TELUGU{% else %}ENGLISH{% endif %} 
+                        </span> <i class="fa-solid fa-chevron-down text-[8px] text-slate-400 group-hover:text-blue-700"></i>
+                    </button>
                     <div id="lang-dropdown"
-                        class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white border border-slate-200 shadow-xl z-[60] overflow-hidden dropdown-animate">
+                        class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white border border-slate-200 shadow-xl z-[60] overflow-hidden">
                         <form action="{% url 'set_language' %}" method="post">
                             {% csrf_token %}
-                            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                            <input name="next" type="hidden" value="/">
                             <button name="language" value="en" type="submit"
                                 class="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-slate-600 hover:bg-blue-50 hover:text-blue-700 border-b border-slate-100">ENGLISH</button>
                             <button name="language" value="hi" type="submit"
@@ -294,13 +251,26 @@
                     </div>
                 </div>
 
+                <!-- unchanged -->
+
                 <div class="flex items-center gap-4">
-                    <a href="{% url 'login' %}"
-                        class="text-sm font-bold text-slate-600 hover:text-blue-700 transition"><i
-                            class="fa-solid fa-right-to-bracket mr-1"></i> {% translate "LOGIN" %}</a>
+                    {% if user.is_authenticated %}
+                    <span class="text-xs font-bold text-slate-500 uppercase">
+                        {% blocktranslate %}Hi, {{ user.username }}{% endblocktranslate %}
+                    </span>
+                    <a href="{% url 'logout' %}" class="text-sm font-bold text-red-500 hover:text-red-700 transition">
+                        {% translate "LOGOUT" %}
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="text-sm font-bold text-slate-600 hover:text-blue-700 transition">
+                        <i class="fa-solid fa-right-to-bracket mr-1"></i>
+                        {% translate "LOGIN" %}
+                    </a>
                     <a href="{% url 'signup' %}"
-                        class="btn-glow text-white px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest">{%
-                        translate "JOIN NETWORK" %}</a>
+                        class="btn-glow text-white px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest">
+                        {% translate "JOIN NETWORK" %}
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -318,31 +288,29 @@
 
     <div id="chat-wrapper" class="fixed bottom-6 right-6 z-[1000]">
         <button onclick="toggleChat()"
-            class="w-16 h-16 bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all border-4 border-white">
+            class="w-16 h-16 bg-blue-700 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all border-4 border-white animate-bounce">
             <i class="fa-solid fa-robot text-2xl"></i>
         </button>
 
         <div id="chat-window"
-            class="hidden absolute bottom-20 right-0 w-80 h-96 bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden">
+            class="hidden absolute bottom-24 right-0 w-80 h-[450px] bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5">
             <div class="bg-blue-700 p-4 text-white flex justify-between items-center shadow-lg">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span class="logo-font text-[10px] font-black tracking-widest">{% translate "CYBER ADVISOR"
-                        %}</span>
+                    <span class="logo-font text-[10px] font-black tracking-widest uppercase">Cyber Advisor</span>
                 </div>
-                <button onclick="toggleChat()" class="hover:rotate-90 transition-transform"><i
-                        class="fa-solid fa-xmark"></i></button>
+                <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div id="chat-content" class="flex-1 p-4 overflow-y-auto text-[11px] space-y-4 bg-slate-50 flex flex-col">
                 <div
-                    class="bg-blue-100 p-3 rounded-2xl rounded-tl-none font-bold text-blue-800 self-start max-w-[85%] border border-blue-200">
+                    class="bg-blue-100 p-3 rounded-2xl rounded-tl-none font-bold text-blue-800 self-start max-w-[85%] border border-blue-200 shadow-sm">
                     {% translate "Hello! I am your AI Cyber Assistant. How can I help you stay safe today?" %}
                 </div>
             </div>
 
             <div class="p-3 border-t bg-white flex gap-2">
-                <input id="chat-input" type="text" placeholder="{% translate 'Type in EN, HI, or TE...' %}"
+                <input id="chat-input" type="text" placeholder="{% translate 'Ask about threats...' %}"
                     class="flex-1 text-xs p-3 bg-slate-100 rounded-xl outline-none font-medium focus:ring-2 focus:ring-blue-700/20 transition-all"
                     onkeypress="if(event.key === 'Enter') sendMsg()">
                 <button onclick="sendMsg()"
@@ -370,8 +338,21 @@
             const userText = input.value.trim();
             if (!userText) return;
 
+            // 1. Add User Bubble
             content.innerHTML += `<div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tr-none font-bold text-slate-700 self-end max-w-[85%] shadow-sm">${userText}</div>`;
             input.value = "";
+            content.scrollTop = content.scrollHeight;
+
+            // 2. Add Typing Indicator
+            const typingId = "typing-" + Date.now();
+            content.innerHTML += `
+        <div id="${typingId}" class="self-start max-w-[85%] animate-in fade-in">
+            <div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none flex gap-1 items-center border border-slate-200">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>`;
             content.scrollTop = content.scrollHeight;
 
             try {
@@ -381,43 +362,35 @@
                     body: JSON.stringify({ msg: userText, lang: ACTIVE_LANG })
                 });
                 const data = await response.json();
-                setTimeout(() => {
-                    let formattedReply = data.reply.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" class="text-white underline font-black">$1</a>');
-                    content.innerHTML += `<div class="bg-blue-700 text-white p-3 rounded-2xl rounded-tl-none font-bold shadow-lg self-start max-w-[85%] animate-in fade-in">${formattedReply}</div>`;
-                    content.scrollTop = content.scrollHeight;
-                }, 400);
-            } catch (error) { console.error("Chat Error:", error); }
-        }
 
+                // 3. Remove Typing Indicator & Format Response
+                document.getElementById(typingId).remove();
+
+                // Clean and structure the Markdown output from Gemini
+                let formattedReply = data.reply
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>') // Convert ### headers
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **bold**
+                    .replace(/\n/g, '<br>'); // Convert newlines to breaks
+
+                content.innerHTML += `
+            <div class="bg-blue-700 text-white p-3 rounded-2xl rounded-tl-none font-bold shadow-lg self-start max-w-[90%] animate-in fade-in ai-bubble-content">
+                <div class="flex items-center gap-2 mb-1 text-cyan-300 text-[8px] uppercase tracking-widest border-b border-white/10 pb-1">
+                    <i class="fa-solid fa-shield-halved"></i> AI Defense Output
+                </div>
+                ${formattedReply}
+            </div>`;
+                content.scrollTop = content.scrollHeight;
+            } catch (error) {
+                console.error("Chat Error:", error);
+                document.getElementById(typingId).innerHTML = "Core connection lost.";
+            }
+        }
         window.onclick = function (event) {
             if (!event.target.closest('#custom-lang-selector')) {
                 const dropdown = document.getElementById('lang-dropdown');
                 if (dropdown && !dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
             }
         }
-
-        {% if messages %}
-        {% for message in messages %}
-        if ("{{ message.tags }}" === "success") {
-            const popup = document.createElement('div');
-            popup.className = "fixed inset-0 flex items-center justify-center z-[100] bg-black/20 backdrop-blur-sm";
-            popup.innerHTML = `
-                <div class="bg-white p-10 rounded-[3rem] shadow-2xl text-center animate-fade-in">
-                    <div class="success-checkmark">
-                        <div class="check-icon">
-                            <span class="icon-line line-tip"></span>
-                            <span class="icon-line line-long"></span>
-                        </div>
-                    </div>
-                    <h2 class="text-2xl font-black text-gray-800 mt-4">Action Successful</h2>
-                    <p class="text-gray-500 font-medium mt-2">{{ message }}</p>
-                </div>
-            `;
-            document.body.appendChild(popup);
-            setTimeout(() => { popup.remove(); }, 3000); // Auto-close after 3 seconds
-        }
-        {% endfor %}
-        {% endif %}
     </script>
 </body>
 

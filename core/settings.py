@@ -1,6 +1,12 @@
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+AI_API_KEY = os.getenv("AI_API_KEY")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +37,7 @@ INSTALLED_APPS = [
     # Local Apps
     'portal',  
     'accounts',
+    'chatbot',
 ]
 
 SITE_ID = 1
@@ -38,14 +45,20 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # LocaleMiddleware must be AFTER SessionMiddleware and BEFORE CommonMiddleware
-    'django.middleware.locale.LocaleMiddleware', 
+
+    # LocaleMiddleware MUST be here
+    'django.middleware.locale.LocaleMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# 2. Persistence settings
+LANGUAGE_COOKIE_NAME = 'django_language'
+LANGUAGE_COOKIE_AGE = 31536000 # 1 year persistence
 
 ROOT_URLCONF = 'core.urls'
 
@@ -55,13 +68,16 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.i18n', # Critical for templates
-            ],
+           'context_processors': [
+    'django.template.context_processors.debug',
+    'django.template.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.template.context_processors.i18n',
+
+    'portal.context_processors.base_template',
+],
+
         },
     },
 ]
@@ -85,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # --- INTERNATIONALIZATION & LOCALIZATION ---
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Asia/Kolkata' 
 USE_I18N = True
 USE_L10N = True
@@ -120,4 +136,4 @@ EMAIL_HOST_PASSWORD = 'khgp mkjf acds qchk'
 
 # --- MISC ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AI_API_KEY = "AIzaSyA1XC2smURg6PX8LVboTssMV2zYPvILKCk"
+# AI_API_KEY = "AIzaSyA1XC2smURg6PX8LVboTssMV2zYPvILKCk"

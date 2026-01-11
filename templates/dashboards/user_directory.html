@@ -1,0 +1,89 @@
+{% extends 'base2.html' %}
+{% load i18n %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-8">
+    <div class="bg-slate-900 p-10 rounded-[3rem] text-white flex justify-between items-center shadow-2xl relative overflow-hidden border border-white/5">
+        <div class="relative z-10">
+            <h1 class="logo-font text-3xl font-black uppercase">{% translate "Personnel Directory" %}</h1>
+            <p class="text-cyan-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-2">{% translate "Identity & Access Management" %}</p>
+        </div>
+        <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
+            <i class="fa-solid fa-users-viewfinder text-cyan-400 text-2xl"></i>
+        </div>
+        <i class="fa-solid fa-id-card absolute -bottom-10 -right-10 text-[200px] opacity-5"></i>
+    </div>
+
+    <div class="bg-white rounded-[3.5rem] border border-slate-100 shadow-sm overflow-hidden">
+        <div class="p-8 border-b border-slate-50 flex items-center justify-between">
+            <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">{% translate "Active Operators" %}</h3>
+            <span class="bg-blue-50 text-blue-700 px-4 py-1 rounded-full text-[10px] font-black uppercase">
+                {{ users.count }} {% translate "Registered" %}
+            </span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead class="bg-slate-50 border-b border-slate-100">
+                    <tr>
+                        <th class="px-10 py-5 text-[10px] font-black text-slate-400 uppercase">{% translate "Operator" %}</th>
+                        <th class="px-10 py-5 text-[10px] font-black text-slate-400 uppercase">{% translate "Email Address" %}</th>
+                        <th class="px-10 py-5 text-[10px] font-black text-slate-400 uppercase">{% translate "Security Role" %}</th>
+                        <th class="px-10 py-5 text-[10px] font-black text-slate-400 uppercase">{% translate "Date Enlisted" %}</th>
+                        <th class="px-10 py-5 text-[10px] font-black text-slate-400 uppercase">{% translate "Status" %}</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-50">
+                    {% for u in users %}
+                    <tr class="hover:bg-slate-50/80 transition-all group">
+                        <td class="px-10 py-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white font-black text-xs border-2 border-white shadow-sm">
+                                    {{ u.username|first|upper }}
+                                </div>
+                                <span class="text-sm font-bold text-slate-800">{{ u.username }}</span>
+                            </div>
+                        </td>
+
+                        <td class="px-10 py-6 text-xs font-medium text-slate-500">
+                            {{ u.email }}
+                        </td>
+
+                        <td class="px-10 py-6">
+                            {% if u.is_superuser %}
+                                <span class="bg-red-50 text-red-600 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-tighter border border-red-100">
+                                    <i class="fa-solid fa-crown mr-1"></i> {% translate "CSOC Commander" %}
+                                </span>
+                            {% else %}
+                                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-tighter border border-blue-100">
+                                    <i class="fa-solid fa-user-shield mr-1"></i> {% translate "Portal Operator" %}
+                                </span>
+                            {% endif %}
+                        </td>
+
+                        <td class="px-10 py-6 text-xs text-slate-400 font-bold">
+                            {{ u.date_joined|date:"d M, Y" }}
+                        </td>
+
+                        <td class="px-10 py-6">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 {% if u.is_active %}bg-emerald-500{% else %}bg-slate-300{% endif %} rounded-full shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+                                <span class="text-[10px] font-black uppercase {% if u.is_active %}text-emerald-600{% else %}text-slate-400{% endif %}">
+                                    {% if u.is_active %}{% translate "Authorized" %}{% else %}{% translate "Inactive" %}{% endif %}
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="px-10 py-20 text-center text-slate-300 font-black uppercase tracking-widest">
+                            {% translate "No Personnel Records Found" %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
