@@ -16,7 +16,7 @@ urlpatterns = [
     path('chatbot/', include('chatbot.urls')),
     path('api/extract/', portal_views.api_extract_image, name='api_extract'),
     
-    # REMOVE THESE TWO LINES BELOW:
+    # REMOVE THESE LINES FROM HERE:
     # path('dashboard/', portal_views.user_dashboard_view, name='user_dashboard'), 
     # path('profile/', portal_views.profile_settings_view, name='profile_settings'),
 ]
@@ -35,7 +35,6 @@ urlpatterns += i18n_patterns(
     path('admin-panel/users/', portal_views.user_directory_view, name='admin_user_management'),
     path('admin-panel/analytics/', portal_views.admin_analytics_view, name='admin_analytics'),
     path('admin-panel/ai-core/', portal_views.ai_monitor_view, name='admin_ai_monitor'),
-
     path('accounts/', include('accounts.urls')),
     prefix_default_language=False,
 )

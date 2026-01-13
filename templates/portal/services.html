@@ -76,9 +76,9 @@
             <p class="text-slate-500 text-sm leading-relaxed mb-4">
                 {% translate "24/7 conversational assistant for guided reporting and cyber safety Q&A." %}
             </p>
-            <button onclick="openChat()" class="text-blue-700 text-xs font-black uppercase tracking-widest hover:underline">
+            <a href="{%url 'chatbot:full_chat' %}" class="text-blue-700 text-xs font-black uppercase tracking-widest hover:underline">
                 {% translate "Start Chat →" %}
-            </button>
+            </a>
         </div>
 
         <div class="group bg-white p-8 rounded-[2.5rem] shadow-lg border border-slate-100 hover:shadow-2xl transition-all relative overflow-hidden">
@@ -127,5 +127,7 @@
         </p>
     </div>
 </div>
+
+
 
 {% endblock %}

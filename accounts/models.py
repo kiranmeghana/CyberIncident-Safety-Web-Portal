@@ -13,7 +13,7 @@ class User(AbstractUser):
 
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='student')
     anonymous_id = models.UUIDField(default=uuid.uuid4, editable=False)
-    is_approved = models.BooleanField(default=True) # Default True for general users
+    is_approved = models.BooleanField(default=True) 
     login_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):

@@ -17,6 +17,7 @@ def login_view(request):
 
         user = None
         try:
+            # Handle Email or Username login
             if '@' in identifier:
                 user_obj = User.objects.get(email=identifier)
                 user = authenticate(request, username=user_obj.username, password=password)
@@ -26,19 +27,31 @@ def login_view(request):
             user = None
 
         if user is not None:
+            # CRITICAL CHECK: Regular users are is_active=False until OTP verify
+            if not user.is_active:
+                messages.error(request, 'Please verify your email/OTP before logging in.')
+                return render(request, 'accounts/login.html')
+
+            # Admin Approval Check
             if user.role == 'admin' and not user.is_approved:
                 messages.error(request, 'Admin account pending approval.')
                 return render(request, 'accounts/login.html')
             
+            # Successful Login
             login(request, user)
             user.login_count += 1
             user.save()
-            return redirect_user_dashboard(user)
+
+            # ROLE REDIRECT
+            if user.is_superuser or user.role == 'admin':
+                return redirect('admin_dashboard')
+            else:
+                # Use the NAMED URL from i18n_patterns in core/urls.py
+                return redirect('user_dashboard')
         else:
             messages.error(request, 'Invalid credentials.')
             
     return render(request, 'accounts/login.html')
-
 def signup_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')

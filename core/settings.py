@@ -137,3 +137,6 @@ EMAIL_HOST_PASSWORD = 'khgp mkjf acds qchk'
 # --- MISC ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # AI_API_KEY = "AIzaSyA1XC2smURg6PX8LVboTssMV2zYPvILKCk"
+
+LOGIN_REDIRECT_URL = 'user_dashboard'
+LOGOUT_REDIRECT_URL = 'landing'

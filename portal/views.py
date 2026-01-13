@@ -13,7 +13,7 @@ from .utils import analyze_cyber_risk
 import google.generativeai as genai
 import base64
 from django.contrib.auth import get_user_model
-
+User = get_user_model()
 
 
 genai.configure(api_key=settings.AI_API_KEY)
@@ -41,7 +41,7 @@ def signup_view(request):
             return redirect('signup')
             
         user = User.objects.create_user(uname, email, passw)
-        user.is_active = False  # Account remains inactive until email verification
+        user.is_active = True  # Account remains inactive until email verification
         user.save()
         
         # Email Verification Logic
@@ -69,9 +69,11 @@ def login_view(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('dashboard')
+            
+            if user.is_superuser:
+                return redirect('admin_dashboard')
             else:
-                messages.error(request, "Please verify your email first.")
+                return redirect('user_dashboard')
         else:
             messages.error(request, "Invalid credentials.")
             

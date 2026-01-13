@@ -7,7 +7,7 @@ def redirect_user_dashboard(user):
         return redirect('admin_dashboard') 
     
     elif hasattr(user, 'role') and user.role == 'user':
-        return redirect('landing')
+        return redirect('user_dashboard')
         
     else:
         return redirect('landing')
