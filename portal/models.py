@@ -9,6 +9,7 @@ class Incident(models.Model):
         null=True, 
         blank=True
     )
+    
     incident_type = models.CharField(max_length=100) 
     description = models.TextField() 
     evidence = models.FileField(upload_to='evidence/', null=True, blank=True) 
